@@ -1,13 +1,10 @@
-import {Form} from './componet/Form.jsx';
 import './App.css';
+import { Form } from './Form/Form.jsx';
 
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-     <Form />
-    </div>
+    <Form />
   );
 }
 
-export default App;
+
