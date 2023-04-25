@@ -72,6 +72,16 @@ export const Form = () => {
                         })} placeholder='username' />
                         {errors.username?.type === 'required' && <p role="alert">Username name is required</p>}
 
+                        <input type="telNo" {...register("mobile", {
+                            required: "Mobile number is required.",
+                            minLength: {
+                                value: 11,
+                                message: "This input must exceed 10 characters"
+                            },
+                        } )} placeholder='mobile number' onChange={onChangeNumber} value={phoneValue}/>
+                        {errors.mobile?.type === "required" && "Mobile Number is required"}
+                        {errors.mobile?.type === "minLength" && "Min Length 11 characters"}
+
                         <input type="text" {...register("password", {
                             required: "Password name is required"
                         })} placeholder='password' />
@@ -82,15 +92,7 @@ export const Form = () => {
                         })} placeholder='confirm password' />
                         {errors.confirmPassword?.type === 'required' && <p role="alert">Confirm password name is required</p>}
                         
-                        <input type="telNo" {...register("mobile", {
-                            required: "Mobile number is required.",
-                            minLength: {
-                                value: 11,
-                                message: "This input must exceed 10 characters"
-                            },
-                        } )} placeholder='mobile number' onChange={onChangeNumber} value={phoneValue}/>
-                        {errors.mobile?.type === "required" && "Mobile Number is required"}
-                        {errors.mobile?.type === "minLength" && "Min Length 11 characters"}
+                        
 
                         <input type="submit" value="Отправить" className='btn' />
                     </form>
