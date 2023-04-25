@@ -65,7 +65,7 @@ export const Form = () => {
 
                     <Title />
 
-                    <form id='form' className='flex flex-col' onSubmit={handleSubmit(onSubmit)} >
+                    <form action="POST" id='form' className='flex flex-col' onSubmit={handleSubmit(onSubmit)} >
 
                         <input type="text" {...register("username", {
                             required: 'Username name is required'
