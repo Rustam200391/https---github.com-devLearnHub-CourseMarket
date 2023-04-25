@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import '../style/form.scss';
+import './style.scss';
 
 export const Form = () => {
     <>
-        
+
     </>
 }
