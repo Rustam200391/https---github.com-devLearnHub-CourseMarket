@@ -8,6 +8,7 @@
 body{
   background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: fit-content;
   
 }
 
@@ -15,7 +16,7 @@ body{
 
 .register{
   /* max-width: 978px; */
-  height: 100%;
+  height: fit-content;
   width: 100vw;
   display:flex;
   align-items: center;
@@ -64,7 +65,7 @@ body{
 
 .register .col-1{
   margin: auto;
-  padding: 3em 0;
+  padding: 9em 0;
 }
 
 .register .col-2 img{
