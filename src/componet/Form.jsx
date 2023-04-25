@@ -1,117 +1,103 @@
-import React, { useState } from "react";
-import "./style.css";
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { Title } from './Title'
+import './style.scss';
 
 export const Form = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const { register, handleSubmit, formState: { errors } } = useForm()
+    const [phoneValue, setPhoneValue] = useState('')
 
-  // States for checking the errors
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
+    const onSubmit = (data) => {
+        for (const dataKey in data) {
+            localStorage.setItem(dataKey, JSON.stringify(data[dataKey]))
+        }
+    };
 
-  // Handling the name change
-  const handleName = (e) => {
-    setName(e.target.value);
-    setSubmitted(false);
-  };
+    const onChangeNumber = (event) => {
+        const prefixNumber = (str) => {
+            if (str === "7") {
+                return "7 (";
+            }
 
-  // Handling the email change
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-    setSubmitted(false);
-  };
+            if (str === "8") {
+                return "7 (";
+            }
 
-  // Handling the password change
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-    setSubmitted(false);
-  };
+            if (str === "9") {
+                return "7 (9";
+            }
 
-  // Handling the form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (name === "" || email === "" || password === "") {
-      setError(true);
-    } else {
-      setSubmitted(true);
-      setError(false);
+            return "7 (";
+        };
+
+        const value = event.target.value.replace(/\D+/g, "");
+        const numberLength = 11;
+
+        let result = '+';
+
+        for (let i = 0; i < value.length && i < numberLength; i++) {
+            switch (i) {
+                case 0:
+                    result += prefixNumber(value[i]);
+                    continue;
+                case 4:
+                    result += ") ";
+                    break;
+                case 7:
+                    result += "-";
+                    break;
+                case 9:
+                    result += "-";
+                    break;
+                default:
+                    break;
+            }
+            result += value[i];
+        }
+
+        setPhoneValue(result)
     }
-  };
 
-  // Showing success message
-  const successMessage = () => {
     return (
-      <div
-        className="success"
-        style={{
-          display: submitted ? "" : "none",
-        }}
-      >
-        <h1>User {name} successfully registered!!</h1>
-      </div>
-    );
-  };
+        <section>
+            <div className="register">
+                <div className="col-1">
 
-  // Showing error message if error is true
-  const errorMessage = () => {
-    return (
-      <div
-        className="error"
-        style={{
-          display: error ? "" : "none",
-        }}
-      >
-        <h1>Please enter all the fields this me</h1>
-      </div>
-    );
-  };
+                    <Title />
 
-  return (
-    <div className="form">
-      <div>
-        <h1>User Registration</h1>
-      </div>
-      <fieldset>
+                    <form id='form' className='flex flex-col' onSubmit={handleSubmit(onSubmit)} >
 
-      {/* Calling to the methods */}
-      <div className="messages">
-        {errorMessage()}
-        {successMessage()}
-      </div>
+                        <input type="text" {...register("username", {
+                            required: 'Username name is required'
+                        })} placeholder='username' />
+                        {errors.username?.type === 'required' && <p role="alert">Username name is required</p>}
 
-      <form>
-        {/* Labels and inputs for form data */}
-        <label className="label">Name</label>
-        <input
-          onChange={handleName}
-          className="input"
-          value={name}
-          type="text"
-        />
+                        <input type="text" {...register("password", {
+                            required: "Password name is required"
+                        })} placeholder='password' />
+                        {errors.password?.type === 'required' && <p role="alert">Password name is required</p>}
 
-        <label className="label">Email</label>
-        <input
-          onChange={handleEmail}
-          className="input"
-          value={email}
-          type="email"
-        />
+                        <input type="text" {...register("confirmPassword", {
+                            required: "Confirm password name is required"
+                        })} placeholder='confirm password' />
+                        {errors.confirmPassword?.type === 'required' && <p role="alert">Confirm password name is required</p>}
+                        
+                        <input type="telNo" {...register("mobile", {
+                            required: "Mobile number is required.",
+                            minLength: {
+                                value: 11,
+                                message: "This input must exceed 10 characters"
+                            },
+                        } )} placeholder='mobile number' onChange={onChangeNumber} value={phoneValue}/>
+                        {errors.mobile?.type === "required" && "Mobile Number is required"}
+                        {errors.mobile?.type === "minLength" && "Min Length 11 characters"}
 
-        <label className="label">Password</label>
-        <input
-          onChange={handlePassword}
-          className="input"
-          value={password}
-          type="password"
-        />
+                        <input type="submit" value="Отправить" className='btn' />
+                    </form>
 
-        <button onClick={handleSubmit} className="btn" type="submit">
-          Submit
-        </button>
-      </form>
-      </fieldset>
+                </div>
+            </div>
+        </section>
+        )
+    }
 
-    </div>
-  );
-};

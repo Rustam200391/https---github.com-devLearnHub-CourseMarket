@@ -1,4 +1,4 @@
-import {Form} from './componet/Form.jsx'
+import {Form} from './componet/Form.jsx';
 import './App.css';
 
 
