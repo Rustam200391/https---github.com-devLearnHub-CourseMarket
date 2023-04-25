@@ -43,9 +43,9 @@
     
     .success{
     display: block;
-    background-color: lightblue;
+    background-color: rgb(157, 188, 188);
     color: black;
-    width: fit-content;
+    width: max-content;
     height: 50px;
     padding: 5px;
     }
