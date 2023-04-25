@@ -1,11 +1,11 @@
+import {Form} from './componet/Form.jsx';
 import './App.css';
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
-     
+        <Form />
     </div>
   );
 }
 
-export default App;
