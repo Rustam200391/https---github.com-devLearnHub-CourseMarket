@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Title } from './Title';
 import { InputSubmit } from './InputSubmit';
+import { Link } from 'react-router-dom'
 import './style.scss';
 
 export const Form = () => {
@@ -101,6 +102,7 @@ export const Form = () => {
                         
                         <InputSubmit/>
                         
+                        <p> Have an account ? <Link to="../pages/Login.jsx"> Login </Link></p>
                     </form>
 
                 </div>
