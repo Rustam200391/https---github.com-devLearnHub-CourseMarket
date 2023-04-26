@@ -10,7 +10,7 @@ export default function App() {
     <Router>
     <Form />
     <Routes>
-    <Route path="./pages" component={Login} exact />
+    <Route path="./pages" element={<Login/>} />
     {/* <Route path="/signup" component={Signup} /> */}
     </Routes>
     </Router>
