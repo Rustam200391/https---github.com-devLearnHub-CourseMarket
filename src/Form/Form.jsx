@@ -4,14 +4,18 @@ import { Title } from './Title'
 import './style.scss';
 
 export const Form = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm()
-    const [phoneValue, setPhoneValue] = useState('')
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const [phoneValue, setPhoneValue] = useState('');
 
     const onSubmit = (data) => {
         for (const dataKey in data) {
             localStorage.setItem(dataKey, JSON.stringify(data[dataKey]))
         }
     };
+
+    
+    // first input in the form
+//    const input = document.getElementsByTagName("input")[0];
 
     const onChangeNumber = (event) => {
         const prefixNumber = (str) => {
@@ -71,6 +75,7 @@ export const Form = () => {
                             required: 'Username name is required'
                         })} placeholder='username' />
                         {errors.username?.type === 'required' && <p role="alert">Username name is required</p>}
+
 
                         <input type="telNo" {...register("mobile", {
                             required: "Mobile number is required.",
