@@ -28,7 +28,7 @@ export const Login = () => {
 					</button>
 				</form>
 				<p>
-					Don't have an account ? <Link to="../component/Form.jsx"> Sign In </Link>
+					Don't have an account ? <Link to="/"> Sign In </Link>
 				</p>
 			</div>
 		</div>
