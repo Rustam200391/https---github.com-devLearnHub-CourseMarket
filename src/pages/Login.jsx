@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 
 
 const preventRefresh = (e) => {
@@ -29,6 +29,7 @@ export const Login = () => {
 				</form>
 				<p>
 					Don't have an account ? <Link to="..//component/Form.jsx"> Sign In </Link>
+          
 				</p>
 			</div>
 		</div>
