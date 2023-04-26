@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Title } from './Title';
 import { InputSubmit } from './InputSubmit';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 export const Form = () => {
