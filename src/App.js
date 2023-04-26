@@ -8,11 +8,11 @@ export default function App() {
   return (
     <>
     <Router>
-    <Form />
-    <Routes>
-    <Route path="./pages" element={<Login/>} />
+      <Form />
+      <Routes>
+        <Route path="./pages" element={<Login/>} />
     {/* <Route path="/signup" component={Signup} /> */}
-    </Routes>
+      </Routes>
     </Router>
     </>
   );
