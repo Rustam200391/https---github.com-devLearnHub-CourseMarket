@@ -87,12 +87,12 @@ export const Form = () => {
                         {errors.mobile?.type === "required" && "Mobile Number is required"}
                         {errors.mobile?.type === "minLength" && "Min Length 11 characters"}
 
-                        <input type="text" {...register("password", {
+                        <input type="password" {...register("password", {
                             required: "Password name is required"
                         })} placeholder='password' />
                         {errors.password?.type === 'required' && <p role="alert">Password name is required</p>}
 
-                        <input type="text" {...register("confirmPassword", {
+                        <input type="password" {...register("confirmPassword", {
                             required: "Confirm password name is required"
                         })} placeholder='confirm password' />
                         {errors.confirmPassword?.type === 'required' && <p role="alert">Confirm password name is required</p>}
