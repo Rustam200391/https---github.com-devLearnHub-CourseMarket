@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Title } from '../component/Item/Title/Title';
-import { ButtonSubmit } from '../component/Item/Input/Input';
+import { Input } from '../component/Item/Input/Input';
 import { Link } from 'react-router-dom';
 import '../style/style.scss';
 
@@ -100,7 +100,7 @@ export const Form = () => {
                         {errors.confirmPassword?.type === 'required' && <p role="alert">Confirm password name is required</p>}
                         
                         
-                        <ButtonSubmit/>
+                        <Input text='Submit' type='submit'/>
                         
                         <p> Have an account ? <Link to="/login"> Login </Link></p>
                     </form>

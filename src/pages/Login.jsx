@@ -1,6 +1,6 @@
 import React from 'react';
 import {  Link } from 'react-router-dom';
-import { ButtonSubmit } from '../component/Item/Input/Input';
+import { Input } from '../component/Item/Input/Input';
 import '../style/style.scss';
 
 
@@ -25,7 +25,8 @@ export const Login = () => {
 						<label htmlFor="e-mail">E-Mail</label>
 						<input type="email" id="e-mail" placeholder="Enter you mail" />
 					</div>
-					<ButtonSubmit  onClick={preventRefresh} />
+
+					<Input text='Submit' type='submit' onClick={preventRefresh} />
 						
 				</form>
 				<p>

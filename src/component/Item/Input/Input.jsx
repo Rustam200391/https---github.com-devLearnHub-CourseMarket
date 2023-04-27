@@ -1,8 +1,9 @@
 import React from "react";
-import './Input';
+import styles from './input.module.scss';
 
-export const ButtonSubmit = () => {
+export const Input = (props) => {
+
   return (
-    <input type="submit" value="Submit" className='btn' />
+    <input type={props.type} value={props.text} className={styles.btn} />
     )
 }
