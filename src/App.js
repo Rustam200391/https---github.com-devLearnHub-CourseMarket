@@ -7,13 +7,7 @@ import { Login } from "./pages/Login";
 export default function App() {
   return (
     <>
-<<<<<<< HEAD
-    <Router>
-        <Routes>
-        <Route path="/" element={<Form/>} />
-        <Route path="/login" element={<Login/>} />
-        {/* <Route path="/signup" component={Signup} /> */}
-=======
+
       <Router>
         <Routes>
           <Route path="/" element={<Form />} />

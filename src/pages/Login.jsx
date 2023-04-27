@@ -30,10 +30,6 @@ export const Login = () => {
 				</form>
 				<p>
 					Don't have an account ? <Link to="/"> Sign In </Link>
-<<<<<<< HEAD
-          
-=======
->>>>>>> 54e5f737fe58f2a8904eb9e876e9f1cf59ad8b94
 				</p>
 			</div>
 		</div>
