@@ -3,6 +3,6 @@ import './InputSubmit.scss';
 
 export const ButtonSubmit = () => {
   return (
-    <input type="submit" value="Submit" className='btn' />
+    <input type="submit" value="Отправить" className='btn' />
     )
 }
