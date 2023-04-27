@@ -12,8 +12,8 @@ export const Title = () => {
         >
             Sign In
         </h2>
-        {show ? 'The service':'Enjoy'}
-    
+        <p>{show ? 'The service':'Enjoy'}</p>
+        
         <CSSTransition 
         in={show} 
         timeout={1000}
