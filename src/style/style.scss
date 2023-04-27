@@ -2,6 +2,7 @@ $color-shadow: #BABECC;
 $color-white: #FFF;
 $ruler: 16px;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
 * {
@@ -10,19 +11,29 @@ $ruler: 16px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-family: sans-serif;
+    font-family: "Poppins", cursive;
+
   }
 
-  body, p {
+  body {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: -0.2px;
     font-size: $ruler;
+    height: fit-content;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 
-  p {
+  p{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    font-size: $ruler;
+    height: fit-content;
     color: $color-shadow;
     font-size: $ruler;
     text-align: center;
   }
+
   
   .illustration img {
     max-height: 500px;
@@ -89,6 +100,20 @@ $ruler: 16px;
     border-radius: 8px;
   }
 
+  .flex{
+    display: flex;
+    gap: 1em;
+  }
+
+  .flex-col{
+    flex-direction: column;
+  }
+  
+  .register .col-1{
+    margin: auto;
+    padding: 9em 0;
+  }
+
   .btn{
     background-color: #003049;
     color: #e9ecef;
@@ -118,10 +143,29 @@ $ruler: 16px;
       padding: 1.5rem;
       max-width: 1100px;
     }
+
+    
+    #form {
+      max-width: 320px;
+      /* width: 95vw; */
+      margin: 2em auto;
+      height: 350px;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      /* border: 1px solid #e9ecef; */
+      /* border-radius: 5px; 
+      box-shadow: 1px 3px 10px #e9ecef;  */
+      /* background-color: white; */
+       
+    }
+
     .form {
       -ms-flex-preferred-size: auto;
       flex-basis: auto;
     }
+
+    
     .form input {
       width: 250px;
     }

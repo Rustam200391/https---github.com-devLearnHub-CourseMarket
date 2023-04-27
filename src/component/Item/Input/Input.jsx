@@ -6,3 +6,4 @@ export const ButtonSubmit = () => {
     <input type="submit" value="Submit" className='btn' />
     )
 }
+// props принимает тип и значение
