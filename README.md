@@ -1,5 +1,5 @@
 # CourseMarket
-Course store and lms system for viewing them
+
 
 Хэллоу еврибади
 Ядро проекта в core
