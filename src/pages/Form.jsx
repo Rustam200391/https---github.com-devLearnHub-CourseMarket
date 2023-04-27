@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Title } from './Title';
-import { ButtonSubmit } from './ButtonSubmit';
+import { Title } from '../component/Item/Title/Title';
+import { ButtonSubmit } from '../component/Item/ButtonSubmit/ButtonSubmit';
 import { Link } from 'react-router-dom';
-import './style.scss';
+import '../style/style.scss';
 
 export const Form = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();

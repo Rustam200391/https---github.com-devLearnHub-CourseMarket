@@ -1,7 +1,7 @@
 import React from 'react';
 import {  Link } from 'react-router-dom';
-import { ButtonSubmit } from '../component/ButtonSubmit';
-import './style.scss';
+import { ButtonSubmit } from '../component/Item/ButtonSubmit/ButtonSubmit';
+import '../style/style.scss';
 
 
 const preventRefresh = (e) => {
