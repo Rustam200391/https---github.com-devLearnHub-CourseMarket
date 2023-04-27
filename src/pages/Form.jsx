@@ -89,6 +89,8 @@ export const Form = () => {
                         {errors.mobile?.type === "required" && "Mobile Number is required"}
                         {errors.mobile?.type === "minLength" && "Min Length 11 characters"}
 
+                        
+
                         <input type="text" {...register("password", {
                             required: "Password name is required"
                         })} placeholder='password' />
