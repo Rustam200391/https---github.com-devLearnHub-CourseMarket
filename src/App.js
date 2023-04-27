@@ -8,9 +8,9 @@ export default function App() {
   return (
     <>
     <Router>
-        <Form />
         <Routes>
-        <Route path="/pages" element={<Login/>} />
+        <Route path="/" element={<Form/>} />
+        <Route path="/login" element={<Login/>} />
         {/* <Route path="/signup" component={Signup} /> */}
         </Routes>
     </Router>

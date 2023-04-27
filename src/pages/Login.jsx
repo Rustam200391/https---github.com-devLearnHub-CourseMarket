@@ -1,5 +1,6 @@
 import React from 'react';
 import {  Link } from 'react-router-dom';
+import './style.scss';
 
 
 const preventRefresh = (e) => {
@@ -28,7 +29,7 @@ export const Login = () => {
 					</button>
 				</form>
 				<p>
-					Don't have an account ? <Link to="..//component/Form.jsx"> Sign In </Link>
+					Don't have an account ? <Link to="/"> Sign In </Link>
           
 				</p>
 			</div>

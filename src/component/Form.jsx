@@ -102,7 +102,7 @@ export const Form = () => {
                         
                         <InputSubmit/>
                         
-                        <p> Have an account ? <Link to="/Login.jsx"> Login </Link></p>
+                        <p> Have an account ? <Link to="/login"> Login </Link></p>
                     </form>
 
                 </div>

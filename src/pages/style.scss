@@ -1,9 +1,26 @@
+$color-shadow: #BABECC;
+$color-white: #FFF;
+$ruler: 16px;
+
+
+
 * {
     margin: 0;
     padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-family: sans-serif;
+  }
+
+  body, p {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    font-size: $ruler;
+  }
+
+  p {
+    color: $color-shadow;
+    text-shadow: 1px 1px 1px $color-white;
   }
   
   .illustration img {
@@ -117,6 +134,8 @@
     justify-self: flex-end;
     margin-left: 2rem;
   }
+
+
   
   button:hover {
     filter: brightness(95%);
