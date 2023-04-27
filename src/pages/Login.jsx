@@ -1,6 +1,6 @@
 import React from 'react';
 import {  Link } from 'react-router-dom';
-import { ButtonSubmit } from '../component/Item/ButtonSubmit/ButtonSubmit';
+import { ButtonSubmit } from '../component/Item/Input/Input';
 import '../style/style.scss';
 
 

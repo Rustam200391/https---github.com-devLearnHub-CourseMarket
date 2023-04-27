@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Title } from '../component/Item/Title/Title';
-import { ButtonSubmit } from '../component/Item/ButtonSubmit/ButtonSubmit';
+import { ButtonSubmit } from '../component/Item/Input/Input';
 import { Link } from 'react-router-dom';
 import '../style/style.scss';
 
