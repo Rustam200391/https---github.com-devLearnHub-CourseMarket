@@ -20,7 +20,8 @@ $ruler: 16px;
 
   p {
     color: $color-shadow;
-    text-shadow: 1px 1px 1px $color-white;
+    font-size: $ruler;
+    text-align: center;
   }
   
   .illustration img {
@@ -38,10 +39,10 @@ $ruler: 16px;
     align-items: center;
   }
   
-  .wrapper p {
-    font-size: 0.85rem;
-    margin-top: 1rem;
-  }
+  // .wrapper p {
+  //   font-size: 0.85rem;
+  //   margin-top: 1rem;
+  // }
   
   .form {
     padding: 1.5rem;
@@ -86,6 +87,13 @@ $ruler: 16px;
     font-weight: bold;
     margin-top: 1.5rem;
     border-radius: 8px;
+  }
+
+  .btn{
+    background-color: #003049;
+    color: #e9ecef;
+    font-size: 1em;
+    cursor: pointer;
   }
   
   @media (min-width: 542px) {
