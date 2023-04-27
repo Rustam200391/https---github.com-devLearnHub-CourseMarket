@@ -67,22 +67,24 @@ $ruler: 16px;
     text-align: center;
   }
   
-  .or {
-    margin: 1rem 0;
-  }
+  // .or {
+  //   margin: 1rem 0;
+  // }
   
   .form label {
     display: block;
     margin: 1.25rem 0 1rem 0;
+    text-align: center;
   }
   
   .form input {
     height: 40px;
-    width: 100%;
+    // width: 100%;
     padding: 15px;
-    background-color: #f1f9ff;
+    // background-color: #f1f9ff;
     border: 2px solid #bce0fd;
-    border-radius: 8px;
+    border-radius: 45px;
+    margin: 0.5em auto;
   }
   
   .form button {

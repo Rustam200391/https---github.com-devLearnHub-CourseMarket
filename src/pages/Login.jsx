@@ -18,11 +18,11 @@ export const Login = () => {
 				<div className="heading">LOGIN</div>
 				<form>
 					<div>
-						<label htmlFor="name">Name</label>
+						{/* <label htmlFor="name">Name</label> */}
 						<input type="text" id="name" placeholder="Enter your name" />
 					</div>
 					<div>
-						<label htmlFor="e-mail">E-Mail</label>
+						{/* <label htmlFor="e-mail">E-Mail</label> */}
 						<input type="email" id="e-mail" placeholder="Enter you mail" />
 					</div>
 					<ButtonSubmit  onClick={preventRefresh} />
