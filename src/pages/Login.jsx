@@ -3,10 +3,6 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 // import '../style/style.scss';
 
-const preventRefresh = (e) => {
-  e.preventDefault();
-};
-
 export const Login = () => {
   
   const {
@@ -23,9 +19,7 @@ export const Login = () => {
 
   return (
     <div className="wrapper signIn">
-      {/* <div className="illustration">
-				<img src="https://source.unsplash.com/random" alt="illustration" />
-			</div> */}
+      
       <div className="form">
         <div className="heading">LOGIN</div>
         <form action="POST" onSubmit={handleSubmit(onSubmit)}>
@@ -55,7 +49,7 @@ export const Login = () => {
             {errors.mail && <p role="alert">{errors.mail?.message}</p>}
           </div>
 
-          <input type="submit" value="Submit" className="btn" />
+          <input type="submit" value="Submit" className="btn"  />
         </form>
         <p>
           Don't have an account ? <Link to="/"> Sign In </Link>
