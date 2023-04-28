@@ -11,6 +11,8 @@ export const Form = () => {
   } = useForm();
   const [phoneValue, setPhoneValue] = useState("");
 
+  const [show,setShow] = useState()
+
   const onSubmit = (data) => {
     for (const dataKey in data) {
       localStorage.setItem(dataKey, JSON.stringify(data[dataKey]));
@@ -70,8 +72,8 @@ export const Form = () => {
       <div className="register">
         <div className="col-1">
           <div>
-            {/* <h2 onClick={() => setShow(!show)}>Sign In</h2> */}
-            {/* <p>{show ? "The service" : "Enjoy"}</p> */}
+            <h2 onClick={() => setShow(!show)}>Sign In</h2> 
+            <p>{show ? "The service" : "Enjoy"}</p> 
 
             <h3>Registration process after filling out the form...</h3>
           </div>
