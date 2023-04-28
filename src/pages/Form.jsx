@@ -70,7 +70,7 @@ export const Form = () => {
       <div className="register">
         <div className="col-1">
           <div>
-            <h2 onClick={() => setShow(!show)}>Sign In</h2>
+            {/* <h2 onClick={() => setShow(!show)}>Sign In</h2> */}
             {/* <p>{show ? "The service" : "Enjoy"}</p> */}
 
             <h3>Registration process after filling out the form...</h3>
