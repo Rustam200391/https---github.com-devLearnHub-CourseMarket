@@ -19,8 +19,6 @@ export const Form = () => {
     }
   };
 
-  // first input in the form
-  //    const input = document.getElementsByTagName("input")[0];
 
   const onChangeNumber = (event) => {
     const prefixNumber = (str) => {
@@ -140,7 +138,7 @@ export const Form = () => {
             />
 
             <p>
-              {" "}
+        
               Have an account ? <Link to="/login"> Login </Link>
             </p>
           </form>
