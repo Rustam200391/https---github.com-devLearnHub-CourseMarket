@@ -1,11 +1,43 @@
-version: '3.5'
-
 services:
-  db_auth:
-    container_name: data_base
+  01_backend:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/backend
+
+    environment:
+      - DB_HOST=data_base
+      - DB_NAME=LH_base
+      - DB_USER=admin
+      - DB_PASS=root
+
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+
+    depends_on:
+      - data_base
+
+  
+  data_base:
+    image: postgres:14.6-alpine
     ports:
       - "5432:5432"
+    container_name: LH_DB
     environment:
-      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=LH_base
       - POSTGRES_USER=admin
-    image: postgres:15-alpine
+      - POSTGRES_PASSWORD=root
+
+
+  # db_auth:
+  #   container_name: data_base
+  #   ports:
+  #     - "5432:5432"
+  #   environment:
+  #     - POSTGRES_PASSWORD=root
+  #     - POSTGRES_USER=admin
+  #   image: postgres:15-alpine
+
+  
