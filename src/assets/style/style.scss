@@ -79,8 +79,8 @@ $ruler: 16px;
   }
   
   .form input {
-    height: 40px;
-    // width: 100%;
+    // height: 40px;
+    width: 100%;
     padding: 15px;
     // background-color: #f1f9ff;
     border: 2px solid #bce0fd;
@@ -171,9 +171,9 @@ $ruler: 16px;
     }
 
     
-    .form input {
-      width: 250px;
-    }
+    // .form input {
+    //   width: 250px;
+    // }
     .illustration img {
       max-width: 80%;
       height: auto;
@@ -221,6 +221,7 @@ body, p, input, select, textarea, button {
 
 h2 {
   text-align: center;
+  // padding: 10px;
   cursor: pointer;
 }
 // animation on the title

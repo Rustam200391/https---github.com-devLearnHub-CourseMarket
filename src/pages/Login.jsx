@@ -21,7 +21,7 @@ export const Login = () => {
     <div className="wrapper signIn">
       
       <div className="form">
-        <div className="heading">LOGIN</div>
+        <div className="heading">Login</div>
         <form action="POST" onSubmit={handleSubmit(onSubmit)}>
           <div>
             {/* <label htmlFor="name">Name</label> */}
