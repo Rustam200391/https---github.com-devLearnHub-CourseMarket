@@ -115,7 +115,7 @@ export const Form = () => {
                 required: "Email Address is required",
               })}
               placeholder="email address"
-              aria-invalid={errors.mail ? "true" : "false"}
+              // aria-invalid={errors.mail ? "true" : "false"}
             />
             {errors.mail && <p role="alert">{errors.mail?.message}</p>}
 
