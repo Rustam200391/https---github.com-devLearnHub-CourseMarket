@@ -109,7 +109,6 @@ export const Form = () => {
             {errors.mobile?.type === "required" && "Mobile Number is required"}
             {errors.mobile?.type === "minLength" && "Min Length 11 characters"}
 
-            {/* <div>
             <input
               type="email"
               {...register("mail", {
@@ -119,7 +118,6 @@ export const Form = () => {
               aria-invalid={errors.mail ? "true" : "false"}
             />
             {errors.mail && <p role="alert">{errors.mail?.message}</p>}
-          </div> */}
 
             <input
               type="text"

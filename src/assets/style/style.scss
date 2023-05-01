@@ -114,7 +114,8 @@ $ruler: 16px;
   
   .register .col-1{
     margin: auto;
-    padding: 9em 0;
+    padding: 7em 0;
+    
   }
 
   
@@ -154,7 +155,7 @@ $ruler: 16px;
       max-width: 320px;
       /* width: 95vw; */
       margin: 2em auto;
-      height: 350px;
+      // mheight: 350px;
       display:flex;
       align-items: center;
       justify-content: center;
@@ -279,5 +280,5 @@ input {
 }
 
 .register{
-  height: 100vh;
+  min-height: 100vh;
 }

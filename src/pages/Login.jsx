@@ -36,18 +36,17 @@ export const Login = () => {
               <p role="alert">Username name is required</p>
             )}
           </div>
-          <div>
-            {/* <label htmlFor="e-mail">E-Mail</label> */}
-            <input
-              type="email"
-              {...register("mail", {
-                required: "Email Address is required",
+          
+          <input
+              type="text"
+              {...register("password", {
+                required: "Password name is required",
               })}
-              placeholder="email address"
-              aria-invalid={errors.mail ? "true" : "false"}
+              placeholder="password"
             />
-            {errors.mail && <p role="alert">{errors.mail?.message}</p>}
-          </div>
+            {errors.password?.type === "required" && (
+              <p role="alert">Password name is required</p>
+            )}
 
           <input type="submit" value="Submit" className="btn"  />
         </form>
