@@ -44,7 +44,7 @@ export const Verification = () => {
           <input type="submit" value="Submit" className="btn" onClick={refreshPage}  />
         </form>
         <p>
-            Back ? <Link to="/"> Push </Link>
+             <Link to="/"> Back </Link>
           </p>
       </div>
     </div>
