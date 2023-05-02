@@ -48,13 +48,18 @@ export const Login = () => {
               <p role="alert">Password name is required</p>
             )}
 
-          <input type="submit" value="Submit" className="btn"  />
+          <input 
+            type="submit" 
+            value="Submit" 
+            className="btn"  
+           />
+
         </form>
           <p>
             Don't have an account ? <Link to="/"> Sign In </Link>
           </p>
           <p>
-            Forgot password ?<Link href="#" variant="body2"> Click Here </Link>
+            Forgot password ? <Link to="/verify" variant="body2"> Click Here </Link>
           </p>
         </div>
       </div>
