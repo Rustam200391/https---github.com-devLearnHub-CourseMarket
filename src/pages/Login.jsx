@@ -50,10 +50,14 @@ export const Login = () => {
 
           <input type="submit" value="Submit" className="btn"  />
         </form>
-        <p>
-          Don't have an account ? <Link to="/"> Sign In </Link>
-        </p>
+          <p>
+            Don't have an account ? <Link to="/"> Sign In </Link>
+          </p>
+          <p>
+          Forgot password?<Link href="#" variant="body2"> Click Here </Link>
+          </p>
+        </div>
       </div>
-    </div>
+          
   );
 };
