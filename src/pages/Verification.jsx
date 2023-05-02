@@ -14,6 +14,11 @@ export const Verification = () => {
     }
   };
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
+
   return (
     <div className="wrapper signIn">
       <div className="form">
@@ -34,7 +39,7 @@ export const Verification = () => {
           />
           {errors.mail && <p role="alert">{errors.mail?.message}</p>}
 
-          <input type="submit" value="Submit" className="btn" />
+          <input type="submit" value="Submit" className="btn" onClick={refreshPage}  />
         </form>
       </div>
     </div>
