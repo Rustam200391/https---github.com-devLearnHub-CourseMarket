@@ -47,6 +47,18 @@ export const Login = () => {
             {errors.password?.type === "required" && (
               <p role="alert">Password name is required</p>
             )}
+{/*          Реализовать функцию восстановления пароля через почту на странице авторизации
+            <p>Please, enter your e-mail</p>
+             
+             <input
+              type="email"
+              {...register("mail", {
+                required: "Email Address is required",
+              })}
+              placeholder="email address"
+              // aria-invalid={errors.mail ? "true" : "false"}
+            />
+            {errors.mail && <p role="alert">{errors.mail?.message}</p>} */}
 
           <input 
             type="submit" 
