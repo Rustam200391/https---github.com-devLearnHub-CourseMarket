@@ -1,5 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+
 
 export const Verification = () => {
   const {
@@ -41,6 +43,9 @@ export const Verification = () => {
 
           <input type="submit" value="Submit" className="btn" onClick={refreshPage}  />
         </form>
+        <p>
+            Back ? <Link to="/"> Push </Link>
+          </p>
       </div>
     </div>
   );
