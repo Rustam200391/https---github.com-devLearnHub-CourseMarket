@@ -54,7 +54,7 @@ export const Login = () => {
             Don't have an account ? <Link to="/"> Sign In </Link>
           </p>
           <p>
-          Forgot password?<Link href="#" variant="body2"> Click Here </Link>
+            Forgot password ?<Link href="#" variant="body2"> Click Here </Link>
           </p>
         </div>
       </div>
