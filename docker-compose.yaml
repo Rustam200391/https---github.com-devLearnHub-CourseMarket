@@ -2,24 +2,37 @@ services:
   01_backend:
     build:
       context: .
+      dockerfile: Dockerfile.back
     ports:
       - "8000:8000"
     volumes:
       - ./backend:/backend
-
     environment:
       - DB_HOST=data_base
       - DB_NAME=LH_base
       - DB_USER=admin
       - DB_PASS=root
-
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
-
     depends_on:
       - data_base
 
+
+  01_frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.front
+    ports:
+      - "5173:3000"
+    volumes:
+      - ./frontend:/frontend
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+    depends_on:
+      - 01_backend
   
+
   data_base:
     image: postgres:14.6-alpine
     ports:
@@ -29,6 +42,9 @@ services:
       - POSTGRES_DB=LH_base
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=root
+
+    
+
 
 
   # db_auth:

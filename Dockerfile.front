@@ -1,0 +1,11 @@
+FROM node:14.17.6-alpine
+
+COPY frontend /frontend
+
+WORKDIR /frontend
+
+EXPOSE 3000
+
+RUN npm install 
+
+CMD ["npm", "run", "dev"]
