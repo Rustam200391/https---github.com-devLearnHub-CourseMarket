@@ -1,0 +1,279 @@
+$color-shadow: #BABECC;
+$color-white: #FFF;
+$ruler: 16px;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-family: "Poppins", cursive;
+
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    font-size: $ruler;
+    height: fit-content;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  p{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    font-size: $ruler;
+    height: fit-content;
+    color: $color-shadow;
+    font-size: $ruler;
+    text-align: center;
+  }
+
+  
+  .illustration img {
+    max-height: 500px;
+    width: auto;
+  }
+  
+  .wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100vh;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  
+  // .wrapper p {
+  //   font-size: 0.85rem;
+  //   margin-top: 1rem;
+  // }
+  
+  .form {
+    padding: 1.5rem;
+    -ms-flex-preferred-size: 100vw;
+    flex-basis: 100vw;
+  }
+  
+  .form .heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  // .or {
+  //   margin: 1rem 0;
+  // }
+  
+  .form label {
+    display: block;
+    margin: 1.25rem 0 1rem 0;
+    text-align: center;
+  }
+  
+  .form input {
+    height: 40px;
+    // width: 100%;
+    padding: 15px;
+    // background-color: #f1f9ff;
+    border: 2px solid #bce0fd;
+    border-radius: 45px;
+    margin: 0.5em auto;
+  }
+  
+  .form button {
+    height: 40px;
+    width: 100%;
+    background-color: #258de6;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .flex{
+    display: flex;
+    gap: 1em;
+  }
+
+  .flex-col{
+    flex-direction: column;
+  }
+  
+  .register .col-1{
+    margin: auto;
+    padding: 9em 0;
+  }
+
+  
+
+  .btn{
+    background-color: #003049;
+    color: #e9ecef;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  @media (min-width: 542px) {
+    body {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+    .wrapper {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      height: 100vh;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      padding: 1.5rem;
+      max-width: 1100px;
+    }
+
+    
+    #form {
+      max-width: 320px;
+      /* width: 95vw; */
+      margin: 2em auto;
+      height: 350px;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      /* border: 1px solid #e9ecef; */
+      /* border-radius: 5px; 
+      box-shadow: 1px 3px 10px #e9ecef;  */
+      /* background-color: white; */
+       
+    }
+
+    .form {
+      -ms-flex-preferred-size: auto;
+      flex-basis: auto;
+    }
+
+    
+    .form input {
+      width: 250px;
+    }
+    .illustration img {
+      max-width: 80%;
+      height: auto;
+    }
+  }
+  
+  @media (max-width: 680px) {
+    .illustration {
+      display: none;
+    }
+  }
+  
+  .signUp .illustration {
+    order: 2;
+    justify-self: flex-end;
+    margin-left: 2rem;
+  }
+
+
+  
+  button:hover {
+    filter: brightness(95%);
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  //
+  $ruler: 16px;
+$color-red: #AE1100;
+$color-bg: #EBECF0;
+$color-shadow: #BABECC;
+$color-white: #FFF;
+
+body, html {
+  background-color:$color-bg;
+}
+
+body, p, input, select, textarea, button {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    font-size: $ruler;
+}
+
+
+h2 {
+  text-align: center;
+  cursor: pointer;
+}
+// animation on the title
+
+.alert-enter {
+  opacity:0;
+  transform: scale(0.9);
+}
+
+.alert-enter-active {
+  opacity:1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.alert-exit {
+  opacity: 1;
+}
+
+div, p {
+  color: $color-shadow;
+  text-shadow: 1px 1px 1px $color-white;
+}
+
+
+form {
+  padding: $ruler;
+  width: $ruler*20;
+  margin: 0 auto;
+}
+
+
+input {
+  border: 0;
+  outline: 0;
+  font-size: $ruler;
+  border-radius: $ruler*20;
+  padding: $ruler;
+  background-color:$color-bg;
+  text-shadow: 1px 1px 0 $color-white;
+}
+
+input {
+  margin-right: $ruler/2;
+  box-shadow:  inset 5px 2px 5px $color-shadow, inset -8px -5px 10px $color-white;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+
+  &:focus {
+    box-shadow:  inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+  }
+}
+
+
