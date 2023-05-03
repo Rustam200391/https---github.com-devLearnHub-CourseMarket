@@ -68,7 +68,7 @@ export const Login = () => {
 
         </form>
           <p>
-            Don't have an account ? <Link to="/"> Sign In </Link>
+            Don't have an account ? <Link to="/"> Sign Up </Link>
           </p>
           <p>
             Forgot password ? <Link to="/verify" variant="body2"> Click Here </Link>

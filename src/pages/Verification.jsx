@@ -31,7 +31,8 @@ export const Verification = () => {
           className="flex flex-col"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <input
+        <div>
+        <input
             type="email"
             {...register("mail", {
               required: "Email Address is required",
@@ -42,10 +43,13 @@ export const Verification = () => {
           {errors.mail && <p role="alert">{errors.mail?.message}</p>}
 
           <input type="submit" value="Submit" className="btn" onClick={refreshPage}  />
-        </form>
+        
         <p>
              <Link to="/"> Back </Link>
           </p>
+
+        </div>
+        </form>
       </div>
     </div>
   );
