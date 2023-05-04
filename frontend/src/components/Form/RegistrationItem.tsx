@@ -1,7 +1,7 @@
-import React from 'react'
+
 import style from './style.module.scss' 
 
-const RegistrationItem = (props) => {
+const RegistrationItem = (props: { title: string; type: string; error: boolean; }) => {
  
   return (
     <div className={style.item}>
@@ -10,8 +10,9 @@ const RegistrationItem = (props) => {
         <input
           type={props.type}
           className={
-            style.input +' ' + (props.error ? style.error : style.correct)
+            style.input + " " + (props.error ? style.error : style.correct)
           }
+          // "^этот колхоз я перепишу^
         />
       </label>
     </div>

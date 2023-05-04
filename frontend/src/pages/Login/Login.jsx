@@ -1,7 +1,7 @@
 import React from "react";
-import RegistrationItem from "../../assets/components/Form/RegistrationItem";
+import RegistrationItem from "../../components/Form/RegistrationItem";
 import style from '../../assets/style/Pages/login.module.scss';
-import Button from "../../assets/UI/Button/Button";
+import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 export const Login = () => {
 
@@ -29,6 +29,7 @@ export const Login = () => {
               id="remember-user"
               type="checkbox"
             />
+            {/* сделать пользовательский чекбокс */}
             <label className={style.memory__label} htmlFor="remember-user">
               Remember me
             </label>
