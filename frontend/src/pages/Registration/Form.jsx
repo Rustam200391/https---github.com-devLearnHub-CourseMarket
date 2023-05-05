@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import '../assets/style/style.scss';
+import Button from '../../components/Button/Button'
+import style from '../../assets/style/Pages/form.module.scss'
+
 
 export const Form = () => {
   const {
@@ -66,9 +68,15 @@ export const Form = () => {
   };
 
   return (
-    <section>
-      <div className="register">
-        <div className="col-1">
+      <div className={style.form}>
+        <section className={style.form__container}>
+        <h1 className={style.form__title}>
+          Registration
+          <span className={style.form__title, style.form__title_blue }>
+          form
+          </span>
+        </h1>
+        <form action="#" className={style.form__register}>
           <div>
             <h2 onClick={() => setShow(!show)}>Sign Up</h2> 
             {/* <p>{show ? "The service" : "Enjoy"}</p> 
@@ -152,8 +160,15 @@ export const Form = () => {
               Have an account ? <Link to="/login"> Login </Link>
             </p>
           </form>
+        </form>
+        <div className={style.form__button}>
+        < Button />
         </div>
+        <div className={style.links}>
+          <Link to="/smth">Forget password?</Link>
+          <Link to="/">Go home</Link>
+        </div>
+        </section>
       </div>
-    </section>
   );
 };

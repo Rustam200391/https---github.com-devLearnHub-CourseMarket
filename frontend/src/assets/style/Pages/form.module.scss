@@ -1,5 +1,5 @@
-$green:#9eff00;
-.login{
+$blue:#007aff;  
+.form{
   min-height: 100vh;
   display: flex;
   justify-content:center;
@@ -16,12 +16,12 @@ $green:#9eff00;
     font-size: 50px;
     text-align: center;
     margin: 0px 0px 20px 0px;
-   &_green{ 
-    color: $green;
+   &_blue{ 
+    color: $blue;
     font-size: 50px;
   }
   }
-  &__form{}
+  &__registration{}
   &__item{
     margin: 0px auto 15px;
     max-width: 300px;
@@ -29,6 +29,7 @@ $green:#9eff00;
   &__button{
     padding: 30px 0px 30px 0px;
     text-align: center;
+    color: $blue;
   }
 }
 .memory{
@@ -49,7 +50,7 @@ $green:#9eff00;
      border-bottom: 1px solid transparent;
      transition: border-bottom 0.3s ease 0s;
     &:hover{
-      border-bottom: 1px solid $green;
+      border-bottom: 1px solid $blue;
     }
     &:last-child{
       margin: 0;
