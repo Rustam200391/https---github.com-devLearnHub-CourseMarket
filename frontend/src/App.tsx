@@ -1,22 +1,23 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Form } from "./pages/Form.jsx";
-import { Login } from "./pages/Login.jsx";
+import { Login } from "./pages/Login/Login.jsx";
 import { Verification } from "./pages/Verification.jsx";
-import './App.css'
+import './App.scss'
+import './assets/style/reset.css';
 
 
 function App() {
 
   return (
     <>
-    {/* <div>lalal</div> */}
       <Router>
         <Routes>
-          <Route path="/" element={<Form />} />
+          <Route path="/" element={<Login />} />
 
-          <Route path="/login" element={<Login />} />
+          <Route path="/registration" element={<Form />} />
+
           
-          <Route path="/verify" element={<Verification />} />
+          <Route path="/auth" element={<Verification />} />
           {/* <Route path="/signup" component={Signup} /> */}
         </Routes>
       </Router>

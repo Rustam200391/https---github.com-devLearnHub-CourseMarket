@@ -1,0 +1,48 @@
+$green:#9eff00;
+$red:#611C24;
+.item{
+width: 100%;
+}
+.title{
+  margin: 0px 0px 10px 0px;
+  &::first-letter{
+    text-transform: uppercase;
+  }
+}
+.label{
+}
+.input{
+  height: 30px;
+  outline: none;
+  padding: 0px 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  transition: box-shadow 0.3s ease 0s;
+ 
+  
+}
+.correct{
+  &:hover{
+    box-shadow: 0px 0px 8px 1px $green;
+  }
+  &:focus{
+    animation-duration: 0.7s;
+    animation-name: pulsar;
+    animation-iteration-count: infinite;
+    animation-direction:alternate;
+  }
+}
+.error{
+  animation-name: pulsar;
+  animation-play-state: paused;
+  box-shadow: 0px 0px 18px 4px $red;
+}
+@keyframes pulsar{
+  from{
+    box-shadow: 0px 0px 8px 1px $green;
+  }
+  to{
+    box-shadow: 0px 0px 18px 4px $green;
+  }
+}

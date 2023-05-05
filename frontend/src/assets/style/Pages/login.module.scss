@@ -1,0 +1,59 @@
+$green:#9eff00;
+.login{
+  min-height: 100vh;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  background: #1d1d1d;
+  &__container{
+    background: black;
+    padding: 50px 100px;
+    border-radius: 10px;
+    //тень общая
+    // box-shadow: 0px 0px 10px 5px #9dff00;
+  }
+  &__title{
+    font-size: 50px;
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+   &_green{ 
+    color: $green;
+    font-size: 50px;
+  }
+  }
+  &__form{}
+  &__item{
+    margin: 0px auto 15px;
+    max-width: 300px;
+  }
+  &__button{
+    padding: 30px 0px 30px 0px;
+    text-align: center;
+  }
+}
+.memory{
+  &__input{
+  }
+  &__label{
+    color: white;
+    font-size: 18px;
+  }
+}
+.links{
+  display: flex;
+  flex-direction: column;
+  &>a{
+    align-self: flex-start;
+    margin: 0px 0px 15px 0px;
+    text-decoration: none;
+     border-bottom: 1px solid transparent;
+     transition: border-bottom 0.3s ease 0s;
+    &:hover{
+      border-bottom: 1px solid $green;
+    }
+    &:last-child{
+      margin: 0;
+      align-self: flex-end;
+    }
+  }
+}
