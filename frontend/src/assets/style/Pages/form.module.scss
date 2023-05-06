@@ -1,4 +1,4 @@
-$blue:#007aff;  
+$green:#9eff00;
 .form{
   min-height: 100vh;
   display: flex;
@@ -16,30 +16,23 @@ $blue:#007aff;
     font-size: 50px;
     text-align: center;
     margin: 0px 0px 20px 0px;
-   &_blue{ 
-    color: $blue;
+   &_green{ 
+    color: $green;
     font-size: 50px;
   }
   }
   &__registration{}
-  &__item{
+  &__list{
     margin: 0px auto 15px;
     max-width: 300px;
   }
   &__button{
     padding: 30px 0px 30px 0px;
     text-align: center;
-    color: $blue;
+    color: $green;
   }
 }
-.memory{
-  &__input{
-  }
-  &__label{
-    color: white;
-    font-size: 18px;
-  }
-}
+
 .links{
   display: flex;
   flex-direction: column;
@@ -50,7 +43,7 @@ $blue:#007aff;
      border-bottom: 1px solid transparent;
      transition: border-bottom 0.3s ease 0s;
     &:hover{
-      border-bottom: 1px solid $blue;
+      border-bottom: 1px solid $green;
     }
     &:last-child{
       margin: 0;
