@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Form } from "./pages/Registration/Form.jsx";
 import { Login } from "./pages/Login/Login.jsx";
 import { Verification } from "./pages/Verification.jsx";
+import { ResetPassword } from "./pages/ResetPassword/ResetPassword.jsx"
 import './App.scss'
 import './assets/style/reset.css';
 
@@ -16,7 +17,7 @@ function App() {
 
           <Route path="/registration" element={<Form />} />
 
-          
+          <Route path="/reset" element={<ResetPassword />} />
           <Route path="/auth" element={<Verification />} />
           {/* <Route path="/signup" component={Signup} /> */}
         </Routes>
