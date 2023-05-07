@@ -15,7 +15,7 @@ export const Login = () => {
             In
           </span>
         </h1>
-        <form action="#" className={style.login__form}>
+        <form action="POST" className={style.login__form}>
           <div className={style.login__item}>
             <RegistrationItem title="login" type="text" error={false} />
           </div>

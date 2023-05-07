@@ -13,7 +13,7 @@ export const ResetPassword = () => {
       ess 
       </span>
       </h1>
-      <form action="Post" className={style.reset__registration}>
+      <form action="POST" className={style.reset__registration}>
         <div className={style.reset__list}>
         <RegistrationItem title="Email" type="text" error={false} />
         </div>
