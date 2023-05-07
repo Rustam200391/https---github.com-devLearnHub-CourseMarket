@@ -15,8 +15,7 @@ export const ResetPassword = () => {
       </h1>
       <form action="Post" className={style.reset__registration}>
         <div className={style.reset__list}>
-        <p className={style.reset__title_center}>email</p>
-        <RegistrationItem placeholder="your email" type="text" error={false} />
+        <RegistrationItem title="Email" type="text" error={false} />
         </div>
       </form>
       <div className={style.reset__button}>
