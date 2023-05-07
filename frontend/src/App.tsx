@@ -19,6 +19,7 @@ function App() {
 
           <Route path="/reset" element={<ResetPassword />} />
           <Route path="/auth" element={<Verification />} />
+          
           {/* <Route path="/signup" component={Signup} /> */}
         </Routes>
       </Router>

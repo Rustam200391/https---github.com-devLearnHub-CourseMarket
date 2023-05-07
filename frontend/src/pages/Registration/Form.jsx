@@ -16,7 +16,7 @@ export const Form = () => {
           Up
           </span>
         </h1>
-        <form action="POST" className={style.form__register}>
+        <form action="POST" className={style.form__registration}>
           <div className={style.form__list}>
             <RegistrationItem title="login" type="text" error={false}/>
           </div>

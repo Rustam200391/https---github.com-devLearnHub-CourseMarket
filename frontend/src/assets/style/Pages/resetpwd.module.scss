@@ -1,5 +1,5 @@
 $green:#9eff00;
-.form{
+.reset{
   min-height: 100vh;
   display: flex;
   justify-content:center;
@@ -20,6 +20,9 @@ $green:#9eff00;
     color: $green;
     font-size: 50px;
   }
+  &_center {
+    text-align: center;
+   }
   }
   &__registration{}
   &__list{
