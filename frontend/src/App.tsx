@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Form } from "./pages/Registration/Form.jsx";
 import { Login } from "./pages/Login/Login.jsx";
-import { Verification } from "./pages/Verification.jsx";
-import { Forgotpwd } from "./pages/ForgotPwd/Forgotpwd.jsx"
+import { ResetPassword } from "./pages/ResetPassword/ResetPassword.jsx";
+import { ForgotPassword } from "./pages/ForgotPwd/Forgotpwd.jsx"
 import './App.scss'
 import './assets/style/reset.css';
 
@@ -17,8 +17,8 @@ function App() {
 
           <Route path="/registration" element={<Form />} />
 
-          <Route path="/forgotpwd" element={<Forgotpwd />} />
-          <Route path="/auth" element={<Verification />} />
+          <Route path="/forgotpwd" element={<ForgotPassword />} />
+          <Route path="/reset" element={<ResetPassword />} />
           
           {/* <Route path="/signup" component={Signup} /> */}
         </Routes>

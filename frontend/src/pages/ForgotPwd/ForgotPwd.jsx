@@ -4,7 +4,10 @@ import style from '../../assets/style/Pages/forgotpwd.module.scss';
 import RegistrationItem from '../../components/Form/RegistrationItem';
 import Button from '../../components/Button/Button';
 
-export const Forgotpwd = () => {
+export const ForgotPassword = () => {
+ 
+ 
+ 
   return (
     <div className={style.forgot}>
       <section className={style.forgot__container}>
