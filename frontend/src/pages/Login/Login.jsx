@@ -41,7 +41,7 @@ export const Login = () => {
         </form>
 
         <div className={style.links}>
-          <Link to="/reset">Forget password?</Link>
+          <Link to="/forgotpwd">Forget password?</Link>
           <Link to="/registration">Create new account</Link>
         </div>
       </section>

@@ -1,24 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import style from '../../assets/style/Pages/resetpwd.module.scss';
+import style from '../../assets/style/Pages/forgotpwd.module.scss';
 import RegistrationItem from '../../components/Form/RegistrationItem';
 import Button from '../../components/Button/Button';
 
-export const ResetPassword = () => {
+export const Forgotpwd = () => {
   return (
-    <div className={style.reset}>
-      <section className={style.reset__container}>
-      <h1 className={style.reset__title}>Acc 
-      <span className={style.reset__title, style.reset__title_green}>
-      ess 
+    <div className={style.forgot}>
+      <section className={style.forgot__container}>
+      <h1 className={style.forgot__title}>Acce 
+      <span className={style.forgot__title, style.forgot__title_green}>
+      ss 
       </span>
       </h1>
-      <form action="POST" className={style.reset__registration}>
-        <div className={style.reset__list}>
+      <form action="POST" className={style.forgot__registration}>
+        <div className={style.forgot__list}>
         <RegistrationItem title="Email" type="text" error={false} />
         </div>
       </form>
-      <div className={style.reset__button}>
+      <div className={style.forgot__button}>
       <Button text="Send Reset Code" type="submit" />
       </div>
       <div className={style.links}>
