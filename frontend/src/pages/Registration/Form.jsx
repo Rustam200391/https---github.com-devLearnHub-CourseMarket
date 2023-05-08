@@ -21,7 +21,7 @@ export const Form = () => {
             <RegistrationItem title="login" type="text" error={false}/>
           </div>
           <div className={style.form__list}>
-            <RegistrationItem title="mobile-number" type="tel" error={false}/>
+            <RegistrationItem title="mobile number" type="tel" error={false}/>
           </div>
           <div className={style.form__list}>
             <RegistrationItem title="Email" type="email" error={false}/>
