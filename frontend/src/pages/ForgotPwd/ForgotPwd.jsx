@@ -13,7 +13,7 @@ export const ForgotPassword = () => {
       <section className={style.forgot__container}>
       <h1 className={style.forgot__title}>Acce 
       <span className={style.forgot__title, style.forgot__title_green}>
-      ss 
+      SS 
       </span>
       </h1>
       <form action="POST" className={style.forgot__registration}>
