@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import Button from '../../components/Button/Button'
 import style from '../../assets/style/Pages/form.module.scss'
-import RegistrationItem from '../../components/Form/RegistrationItem.tsx'
+import RegistrationItem from '../../components/Form/RegistrationItem.tsx';
 
 
 export const Form = () => {
  
+
 
   return (
       <div className={style.form}>
