@@ -44,4 +44,4 @@ export const Form = () => {
         </section>
       </div>
   );
-};
+}
