@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Form } from "./pages/Registration/Form.jsx";
 import { Login } from "./pages/Login/Login.jsx";
-import { ResetPassword } from "./pages/ResetPassword/ResetPassword.jsx";
+import { ResetPassword } from "./pages/ResetPwd/ResetPwd.jsx";
 import { ForgotPassword } from "./pages/ForgotPwd/Forgotpwd.jsx"
 import './App.scss'
 import './assets/style/reset.css';
