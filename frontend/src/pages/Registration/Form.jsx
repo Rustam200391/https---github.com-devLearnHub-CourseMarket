@@ -36,7 +36,7 @@ export const Form = () => {
            
         </form>
         <div className={style.form__button}>
-        < Button text ="Submit" type="submit" />
+        < Button text ="Sign up" type="submit" />
         </div>
         <div className={style.links}>
           <Link to="/">Go home</Link>

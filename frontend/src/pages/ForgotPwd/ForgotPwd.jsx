@@ -22,7 +22,7 @@ export const ForgotPassword = () => {
         </div>
       </form>
       <div className={style.forgot__button}>
-      <Button text="Send Reset Code" type="submit" />
+      <Button text="Send reset code" type="submit" />
       </div>
       <div className={style.links}>
           <Link to="/">Go home</Link>
