@@ -31,7 +31,7 @@ export const Form = () => {
             <RegistrationItem title="password" type="password" error={false} />
           </div>
           <div className={style.login__list}>
-            <RegistrationItem title="confirmpwd" type="password" error={false} />
+            <RegistrationItem title="confirmPwd" type="password" error={false} />
           </div>
            
         </form>
