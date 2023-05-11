@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import style from '../../assets/style/Pages/forgotPwd.module.scss';
+import style from './style.module.scss';
 import RegistrationItem from '../../components/Form/RegistrationItem';
 import Button from '../../components/Button/Button';
 
