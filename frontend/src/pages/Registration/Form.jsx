@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import Button from '../../components/Button/Button'
-import style from './style.module.scss'
+import Button from '../../components/Button/Button';
+import style from './style.module.scss';
 import RegistrationItem from '../../components/Form/RegistrationItem.tsx';
+import { useForm } from 'react-hook-form';
 
 
 export const Form = () => {
- 
-
+  
+  // const {register, handleSubmit, formState: {errors} }  = useForm();
+  
 
   return (
       <div className={style.form}>
