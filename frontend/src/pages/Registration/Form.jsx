@@ -7,8 +7,23 @@ import { useForm } from 'react-hook-form';
 
 export const Form = () => {
   
-  // const {register, handleSubmit, formState: {errors} }  = useForm();
-  
+
+  // const { register, handleSubmit, formState: { errors } } = useForm();
+  // const handleRegistration = (data) => console.log(data);
+  // const handleError = (errors) => {};
+
+  // const registerOptions = {
+  //   name: { required: "Name is required" },
+  //   email: { required: "Email is required" },
+  //   password: {
+  //     required: "Password is required",
+  //     minLength: {
+  //       value: 8,
+  //       message: "Password must have at least 8 characters"
+  //     }
+  //   }
+  // };
+
 
   return (
       <div className={style.form}>
@@ -19,18 +34,25 @@ export const Form = () => {
           Up
           </span>
         </h1>
-        <form action="POST" className={style.form__registration}>
+        <form action="POST"    className={style.form__registration} >
+        {/* onSubmit={handleSubmit(handleRegistration, handleError)} */}
           <div className={style.form__list}>
-            <RegistrationItem title="login" type="text" error={false}/>
+            <RegistrationItem name="login"  />
+            {/* {...register('name', registerOptions.name) }
+            {errors?.name && errors.name.message} */}
           </div>
           <div className={style.form__list}>
             <RegistrationItem title="mobile number" type="tel" error={false}/>
           </div>
           <div className={style.form__list}>
-            <RegistrationItem title="Email" type="email" error={false}/>
+            <RegistrationItem type="email" name="email" />
+            {/* {...register('email', registerOptions.email) } 
+            {errors?.email && errors.email.message} */}
           </div>
           <div className={style.form__list}>
             <RegistrationItem title="password" type="password" error={false} />
+            {/* {...register('password', registerOptions.password) } 
+            {errors?.password && errors.password.message} */}
           </div>
           <div className={style.login__list}>
             <RegistrationItem title="confirmPwd" type="password" error={false} />
