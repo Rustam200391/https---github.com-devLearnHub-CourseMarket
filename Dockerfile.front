@@ -1,11 +1,11 @@
-FROM node:14.17.6-alpine
-
-COPY frontend /frontend
+FROM node:20-alpine3.16
 
 WORKDIR /frontend
 
 EXPOSE 3000
 
-RUN npm install 
+COPY frontend /frontend
+RUN npm install
+
 
 CMD ["npm", "run", "dev"]

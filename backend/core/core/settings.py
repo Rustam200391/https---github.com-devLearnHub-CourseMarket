@@ -38,21 +38,35 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+
+    'profiles',
     
-    #"""приложения"""
-    'accounts',
-    # 'rest_framework',
+    
+    'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
+    'phonenumber_field', # библиотека для номера телефона
     
 ]
+AUTH_USER_MODEL = 'profiles.UserData'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+
+DJOSER = {
+        'USER_CREATE_PASSWORD_RETYPE': True,
+        'SET_PASSWORD_RETYPE': True,
+    
+    }
+
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+        'rest_framework.permissions.AllowAny',
+    ],
 }
 
 MIDDLEWARE = [
@@ -86,15 +100,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 DATABASES ={
     'default': {
@@ -129,7 +135,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
