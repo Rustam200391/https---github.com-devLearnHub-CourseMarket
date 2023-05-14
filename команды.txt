@@ -10,6 +10,7 @@
 {
     "phoneNumber": "+79682236651",
     "username": "alexey",
+    "email" : "alex@admin.ru"
     "password": "root12345",
     "re_password": "root12345"
 }
@@ -22,7 +23,7 @@
 
 передаваемые данные:
 {
- "username": "alexey",
+ "email": "alexey",
  "password": "root12345"
 }
 ------------------------------
