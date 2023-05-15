@@ -1,27 +1,50 @@
 import React from "react";
 import RegistrationItem from "../../components/Form/RegistrationItem";
-import style from './style.module.scss';
+import style from "./style.module.scss";
 import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 export const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
+  const onSubmit = (data) => console.log(data);
 
   return (
     <div className={style.login}>
       <section className={style.login__container}>
         <h1 className={style.login__title}>
           Log
-          <span className={(style.login__title, style.login__title_green)}>
-            In
-          </span>
+          <span className={style.login__title_green}>In</span>
         </h1>
-        <form action="POST" className={style.login__form}>
+        <form
+          action="POST"
+          className={style.login__form}
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className={style.login__item}>
-            <RegistrationItem title="login" type="text" error={false} />
+            <RegistrationItem title="login" error={errors.login}>
+              <input {...register("login", { required: true })} type="text" />
+            </RegistrationItem>
           </div>
           <div className={style.login__item}>
-            <RegistrationItem title="password" type="password" error={false} />
+            <RegistrationItem
+              title="password"
+              type="password"
+              error={errors.password}
+            >
+              <input
+                id="password"
+                type="password"
+                {...register("password", {
+                  required: true,
+                })}
+              />
+            </RegistrationItem>
           </div>
 
           <div className={(style.login__memory, style.memory)}>
