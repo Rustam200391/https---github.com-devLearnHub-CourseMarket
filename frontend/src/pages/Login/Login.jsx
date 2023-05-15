@@ -13,6 +13,12 @@ export const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => console.log(data);
+  const onChange = () => {
+    const remember = document.getElementById("remember-user");
+    if (remember.checked) {
+      console.log("checked");
+    }
+  };
 
   return (
     <div className={style.login}>
@@ -52,6 +58,7 @@ export const Login = () => {
               className={style.memory__inp}
               id="remember-user"
               type="checkbox"
+              onClick={onChange}
             />
             {/* сделать пользовательский чекбокс */}
             <label className={style.memory__label} htmlFor="remember-user">
