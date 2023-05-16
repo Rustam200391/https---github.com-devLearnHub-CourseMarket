@@ -21,7 +21,7 @@ export const Login = () => {
     } else {
       remember.className -= "light";
     }
-    //  сделать с jQuery или лучше на чистом js
+    //  сделать  на чистом js
   };
 
   return (
