@@ -16,8 +16,12 @@ export const Login = () => {
   const onChange = () => {
     const remember = document.getElementById("remember-user");
     if (remember.checked) {
+      remember.className += "light";
       console.log("checked");
+    } else {
+      remember.className -= "light";
     }
+    //  сделать с jQuery или лучше на чистом js
   };
 
   return (
