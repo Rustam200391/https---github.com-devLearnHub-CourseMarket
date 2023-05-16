@@ -33,6 +33,7 @@ $green:#9eff00;
 }
 .memory{
   &__input{
+    
   }
   &__label{
     color: white;
@@ -56,4 +57,7 @@ $green:#9eff00;
       align-self: flex-end;
     }
   }
+}
+.highlighted {
+  background-color: yellow;
 }

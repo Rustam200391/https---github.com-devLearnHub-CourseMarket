@@ -4,6 +4,7 @@ import style from "./style.module.scss";
 import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 export const Login = () => {
   const {
@@ -13,16 +14,28 @@ export const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => console.log(data);
-  const onChange = () => {
-    const remember = document.getElementById("remember-user");
-    if (remember.checked) {
-      remember.className += "light";
-      console.log("checked");
-    } else {
-      remember.className -= "light";
-    }
-    //  сделать  на чистом js
+
+  const [checked, setChecked] = useState(false);
+
+  const handleCheck = (e) => {
+    setChecked(e.target.checked);
+    console.log("Hello world!");
   };
+
+  // const onChange = () => {
+  //   const remember = document.getElementById("remember-user");
+  //   if (remember.checked) {
+  //     remember.className += "light";
+  //     console.log("mission accomplished");
+  //   } else {
+  //     remember.className -= "light";
+  //   }
+  //  сделать  на чистом js
+  // };
+  // const [checked, setChecked] = useState(false);
+  // const handleChange = () => {
+  //   setChecked(!checked);
+  // };
 
   return (
     <div className={style.login}>
@@ -62,9 +75,11 @@ export const Login = () => {
               className={style.memory__inp}
               id="remember-user"
               type="checkbox"
-              onClick={onChange}
+              checked={checked}
+              onChange={handleCheck}
             />
-            {/* сделать пользовательский чекбокс */}
+            <span className={checked ? "highlighted" : ""}></span>
+            {/* Не понимаю почему не отрабатывает */}
             <label className={style.memory__label} htmlFor="remember-user">
               Remember me
             </label>
