@@ -33,7 +33,28 @@ $green:#9eff00;
 }
 .memory{
   &__input{
-    
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  visibility: hidden; 
+  }
+  &__input:checked + span{
+    background: #000;
+  }
+  &__customInput{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-right: 70px solid transparent;
+    border-top: 70px solid #9eff00;
+    border-left: 70px solid #9eff00;
+    border-bottom: 70px solid #9eff00;
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+    border-bottom-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    background: #9eff00;
   }
   &__label{
     color: white;
@@ -58,6 +79,11 @@ $green:#9eff00;
     }
   }
 }
-.highlighted {
+.active {
   background-color: yellow;
 }
+
+
+/* нам не нужно, чтобы input’ы были видны, нужны только лейблы */
+
+ 

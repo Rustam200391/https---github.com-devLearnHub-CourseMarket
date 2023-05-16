@@ -4,7 +4,7 @@ import style from "./style.module.scss";
 import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+// import { useState } from "react";
 
 export const Login = () => {
   const {
@@ -15,12 +15,12 @@ export const Login = () => {
 
   const onSubmit = (data) => console.log(data);
 
-  const [checked, setChecked] = useState(false);
+  // const [checked, setChecked] = useState(false);
 
-  const handleCheck = (e) => {
-    setChecked(e.target.checked);
-    console.log("Hello world!");
-  };
+  // const handleCheck = (e) => {
+  //   setChecked(e.target.checked);
+  //   console.log("Hello world!");
+  // };
 
   // const onChange = () => {
   //   const remember = document.getElementById("remember-user");
@@ -72,14 +72,14 @@ export const Login = () => {
 
           <div className={(style.login__memory, style.memory)}>
             <input
-              className={style.memory__inp}
+              className={style.memory__input}
               id="remember-user"
               type="checkbox"
-              checked={checked}
-              onChange={handleCheck}
+              // checked={checked}
+              // onChange={handleCheck}
             />
-            <span className={checked ? "highlighted" : ""}></span>
-            {/* Не понимаю почему не отрабатывает */}
+
+            <span className={style.memory__customInput}></span>
             <label className={style.memory__label} htmlFor="remember-user">
               Remember me
             </label>
