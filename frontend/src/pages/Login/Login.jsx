@@ -71,6 +71,9 @@ export const Login = () => {
           </div>
 
           <div className={(style.login__memory, style.memory)}>
+            <label className={style.memory__label} htmlFor="remember-user">
+              Remember me
+            </label>
             <input
               className={style.memory__input}
               id="remember-user"
@@ -78,11 +81,7 @@ export const Login = () => {
               // checked={checked}
               // onChange={handleCheck}
             />
-
             <span className={style.memory__customInput}></span>
-            <label className={style.memory__label} htmlFor="remember-user">
-              Remember me
-            </label>
           </div>
 
           <div className={style.login__button}>

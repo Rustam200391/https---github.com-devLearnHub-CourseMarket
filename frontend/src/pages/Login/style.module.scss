@@ -40,22 +40,42 @@ $green:#9eff00;
   visibility: hidden; 
   }
   &__input:checked + span{
-    background: #000;
+    background: #fbf9f9;
   }
   &__customInput{
     display: inline-block;
-    width: 0;
-    height: 0;
-    border-right: 70px solid transparent;
-    border-top: 70px solid #9eff00;
-    border-left: 70px solid #9eff00;
-    border-bottom: 70px solid #9eff00;
-    border-top-left-radius: 70px;
-    border-top-right-radius: 70px;
-    border-bottom-left-radius: 70px;
-    border-bottom-right-radius: 70px;
-    background: #9eff00;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(250, 248, 248);
+    position: absolute;
+    margin-left: 15px;
+    // border-right: 70px solid transparent;
+    // border-top: 70px solid #9eff00;
+    // border-left: 70px solid #9eff00;
+    // border-bottom: 70px solid #9eff00;
+    // border-top-left-radius: 70px;
+    // border-top-right-radius: 70px;
+    // border-bottom-left-radius: 70px;
+    // border-bottom-right-radius: 70px;
+    // background: #9eff00;
+    // position: relative;
   }
+   &__customInput::before {
+    content: "";
+    position: absolute;
+    display: block;
+    // display: block;
+    width: 20px;
+    height: 20px;
+    background: #9eff00;
+    border: #000;
+    transform: translate(-50%, -50%);
+    top: 48%;
+    left: 50%;
+    opacity: 0;
+    transition: .2s;
+   }
+  
   &__label{
     color: white;
     font-size: 18px;
@@ -79,11 +99,12 @@ $green:#9eff00;
     }
   }
 }
-.active {
-  background-color: yellow;
+// .active {
+//   background-color: yellow;
+// }
+
+
+
+.memory__input:checked + .memory__customInput::before {
+  opacity: 1;
 }
-
-
-/* нам не нужно, чтобы input’ы были видны, нужны только лейблы */
-
- 
