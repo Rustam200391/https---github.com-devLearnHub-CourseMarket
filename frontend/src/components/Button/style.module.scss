@@ -1,0 +1,20 @@
+$green:#9eff00;
+.button{
+  min-height: 30px;
+  padding: 5px 10px;
+  background: $green;
+  color: black;
+  font-size: 26px;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow-wrap: break-word;
+  border: none;
+  width: 100%;
+    box-shadow: 0px 0px 8px 1px $green;
+    transition: box-shadow 0.3s ease 0s;
+  &:hover{
+    -webkit-box-shadow: 0px 0px 18px 4px $green;
+    -moz-box-shadow: 0px 0px 18px 4px $green;
+    box-shadow: 0px 0px 8px 4px $green;
+  }
+}
