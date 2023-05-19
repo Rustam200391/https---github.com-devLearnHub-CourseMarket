@@ -11,7 +11,8 @@ width: 100%;
 }
 .label{
 }
-.input{
+.inputWrapper{
+  &>input{
   height: 30px;
   outline: none;
   padding: 0px 10px;
@@ -19,11 +20,12 @@ width: 100%;
   border-radius: 5px;
   border: none;
   transition: box-shadow 0.3s ease 0s;
- 
-  
+  }
 }
+
 .correct{
-  &:hover{
+  &>input{
+    &:hover{
     box-shadow: 0px 0px 8px 1px $green;
   }
   &:focus{
@@ -32,11 +34,15 @@ width: 100%;
     animation-iteration-count: infinite;
     animation-direction:alternate;
   }
+  }
+  
 }
 .error{
+  &>input{
   animation-name: pulsar;
   animation-play-state: paused;
-  box-shadow: 0px 0px 18px 4px $red;
+  box-shadow: 0px 0px 18px 10px $red;
+  }
 }
 @keyframes pulsar{
   from{
