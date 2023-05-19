@@ -3,6 +3,7 @@ import Button from "../../components/Button/Button";
 import style from "./style.module.scss";
 import RegistrationItem from "../../components/Form/RegistrationItem.jsx";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 export const Form = () => {
   const {
@@ -11,7 +12,23 @@ export const Form = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const car = "";
+
+  const onSubmit = (data) => {
+    const { phoneNumber, username, email, password, re_password } = data;
+    axios({
+      method: "post",
+      url: "http://localhcdost:8000/api/v1/users/",
+      data: {
+        username: username,
+        email: email,
+        phoneNumber: phoneNumber,
+        password: password,
+        re_password: re_password,
+      },
+    });
+  };
+
   const checkPassword = () => {
     const password = document.getElementById("password").value;
     const confirmpswd = document.getElementById("confirmpswd").value;
@@ -25,6 +42,7 @@ export const Form = () => {
           Sign
           <span className={style.form__title_green}>Up</span>
         </h1>
+
         <form
           action="POST"
           className={style.form__registration}
@@ -32,7 +50,10 @@ export const Form = () => {
         >
           <div className={style.form__list}>
             <RegistrationItem title="login" error={errors.login}>
-              <input {...register("login", { required: true })} type="text" />
+              <input
+                {...register("username", { required: true })}
+                type="text"
+              />
             </RegistrationItem>
           </div>
 
@@ -40,7 +61,10 @@ export const Form = () => {
             <RegistrationItem title="Phone" error={errors.phone}>
               <input
                 type="tel"
-                {...register("phone", { pattern: /^[0-9]+$/i, required: true })}
+                {...register("phoneNumber", {
+                  pattern: /^[0-9]+$/i,
+                  required: true,
+                })}
               />
             </RegistrationItem>
           </div>
@@ -79,7 +103,7 @@ export const Form = () => {
               <input
                 id="confirmpswd"
                 type="password"
-                {...register("confirmpwd", {
+                {...register("re_password", {
                   required: true,
                   validate: checkPassword,
                 })}
