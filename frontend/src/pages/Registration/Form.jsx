@@ -12,22 +12,25 @@ export const Form = () => {
     formState: { errors },
   } = useForm();
 
-  const car = "";
-
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const { phoneNumber, username, email, password, re_password } = data;
-    axios({
-      method: "post",
-      url: "http://localhcdost:8000/api/v1/users/",
-      data: {
-        username: username,
-        email: email,
-        phoneNumber: phoneNumber,
-        password: password,
-        re_password: re_password,
-      },
-    });
-  };
+    const url = "http://localhost:8000/api/v1/users/";
+    await fetch()
+  //   await axios
+  //     .post(url, {
+  //       username: username,
+  //       email: email,
+  //       phoneNumber: phoneNumber,
+  //       password: password,
+  //       re_password: re_password,
+  //     })
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.warn(err);
+  //     });
+  // };
 
   const checkPassword = () => {
     const password = document.getElementById("password").value;
