@@ -5,7 +5,6 @@ import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useState } from "react";
 
 export const Login = () => {
   const {
@@ -16,7 +15,7 @@ export const Login = () => {
 
   const onSubmit = (data) => console.log(data);
 
-  const 
+
 
   return (
     <div className={style.login}>
@@ -25,6 +24,7 @@ export const Login = () => {
           Log
           <span className={style.login__title_green}>In</span>
         </h1>
+        
         <form
           action="POST"
           className={style.login__form}
