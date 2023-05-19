@@ -15,22 +15,21 @@ export const Form = () => {
   const onSubmit = async (data) => {
     const { phoneNumber, username, email, password, re_password } = data;
     const url = "http://localhost:8000/api/v1/users/";
-    await fetch()
-  //   await axios
-  //     .post(url, {
-  //       username: username,
-  //       email: email,
-  //       phoneNumber: phoneNumber,
-  //       password: password,
-  //       re_password: re_password,
-  //     })
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.warn(err);
-  //     });
-  // };
+    await axios
+      .post(url, {
+        username: username,
+        email: email,
+        phoneNumber: phoneNumber,
+        password: password,
+        re_password: re_password,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.warn(err);
+      });
+  };
 
   const checkPassword = () => {
     const password = document.getElementById("password").value;
