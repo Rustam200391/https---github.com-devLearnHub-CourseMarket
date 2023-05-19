@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom";
-import Button from '../../components/Button/Button';
-import style from './style.module.scss';
-import RegistrationItem from '../../components/Form/RegistrationItem.jsx';
-import { useForm } from 'react-hook-form';
-
+import Button from "../../components/Button/Button";
+import style from "./style.module.scss";
+import RegistrationItem from "../../components/Form/RegistrationItem.jsx";
+import { useForm } from "react-hook-form";
 
 export const Form = () => {
-
   const {
     register,
     handleSubmit,
@@ -100,4 +98,4 @@ export const Form = () => {
       </section>
     </div>
   );
-}
+};
