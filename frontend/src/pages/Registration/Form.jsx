@@ -12,6 +12,8 @@ export const Form = () => {
     formState: { errors },
   } = useForm();
 
+  const car = "";
+
   const onSubmit = (data) => {
     const { phoneNumber, username, email, password, re_password } = data;
     axios({
