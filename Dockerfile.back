@@ -14,4 +14,4 @@ RUN adduser --disabled-password service-user
 USER service-user
 
 
-# CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
