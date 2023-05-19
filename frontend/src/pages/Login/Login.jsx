@@ -15,8 +15,6 @@ export const Login = () => {
 
   const onSubmit = (data) => console.log(data);
 
-  const 
-
   return (
     <div className={style.login}>
       <section className={style.login__container}>
