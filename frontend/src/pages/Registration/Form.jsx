@@ -17,9 +17,9 @@ export const Form = () => {
     const url = "http://localhost:8000/api/v1/users/";
     await axios
       .post(url, {
+        phoneNumber: phoneNumber,
         username: username,
         email: email,
-        phoneNumber: phoneNumber,
         password: password,
         re_password: re_password,
       })
@@ -64,7 +64,7 @@ export const Form = () => {
               <input
                 type="tel"
                 {...register("phoneNumber", {
-                  pattern: /^[0-9]+$/i,
+                  pattern: /^(\+?\d{1,})$/i,
                   required: true,
                 })}
               />

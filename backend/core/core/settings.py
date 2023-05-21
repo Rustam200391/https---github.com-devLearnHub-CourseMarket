@@ -10,6 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+]
+
+
 from pathlib import Path
 import os
 
@@ -47,11 +52,16 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'phonenumber_field', # библиотека для номера телефона
+    'corsheaders'
+
     
 ]
 AUTH_USER_MODEL = 'profiles.UserData'
 
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+]
 
 
 DJOSER = {
@@ -73,10 +83,13 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'core.urls'
