@@ -22,7 +22,7 @@ export const Login = () => {
           Log
           <span className={style.login__title_green}>In</span>
         </h1>
-        
+
         <form
           action="POST"
           className={style.login__form}
@@ -67,7 +67,7 @@ export const Login = () => {
         </form>
 
         <div className={style.links}>
-          <Link to="/forgotPwd">Forget password?</Link>
+          <Link to="/forgotPwd">Forgot password?</Link>
           <Link to="/registration">Create new account</Link>
         </div>
       </section>
