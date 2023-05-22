@@ -1,0 +1,11 @@
+$green: #9eff00;
+.container {
+	min-height: 100vh;
+	background: #000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.text {
+	color: $green;
+}

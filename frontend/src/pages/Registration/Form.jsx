@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import style from "./style.module.scss";
 import RegistrationItem from "../../components/Form/RegistrationItem.jsx";
@@ -11,24 +11,28 @@ export const Form = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     const { phoneNumber, username, email, password, re_password } = data;
     const url = "http://localhost:8000/api/v1/users/";
-    await axios
-      .post(url, {
-        phoneNumber: phoneNumber,
-        username: username,
-        email: email,
-        password: password,
-        re_password: re_password,
-      })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.warn(err);
-      });
+    try {
+      await axios
+        .post(url, {
+          phoneNumber: phoneNumber,
+          username: username,
+          email: email,
+          password: password,
+          re_password: re_password,
+        })
+        .then((res) => {
+          if (res.status === 201) {
+            navigate("/dashboard");
+          }
+        });
+    } catch (err) {
+      console.warn("ошибка", err);
+    }
   };
 
   const checkPassword = () => {
