@@ -29,8 +29,8 @@ export const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className={style.login__item}>
-            <RegistrationItem title="login" error={errors.login}>
-              <input {...register("login", { required: true })} type="text" />
+            <RegistrationItem title="email" error={errors.login}>
+              <input {...register("email", { required: true })} type="text" />
             </RegistrationItem>
           </div>
           <div className={style.login__item}>
