@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Form } from "./pages/Registration/Form.jsx";
+import { Registration } from "./pages/Registration/Registration.jsx";
 import { Login } from "./pages/Login/Login.jsx";
 import { ResetPassword } from "./pages/ResetPwd/ResetPwd.jsx";
 import { ForgotPassword } from "./pages/ForgotPwd/ForgotPwd.jsx";
@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
 
-          <Route path="/registration" element={<Form />} />
+          <Route path="/registration" element={<Registration />} />
 
           <Route path="/forgotPwd" element={<ForgotPassword />} />
           <Route path="/reset" element={<ResetPassword />} />
