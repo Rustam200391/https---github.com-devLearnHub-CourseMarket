@@ -39,10 +39,10 @@ $green:#9eff00;
   z-index: -1;
   visibility: hidden; 
   }
-  &__input:checked + span{
+  &__input:checked+span{
     background: #fbf9f9;
   }
-  &__customInput{
+  &__customInput+label{
     display: inline-block;
     width: 20px;
     height: 20px;

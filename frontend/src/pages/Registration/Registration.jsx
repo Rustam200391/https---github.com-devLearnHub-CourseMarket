@@ -1,16 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Button from "../../components/Button/Button";
 import style from "./style.module.scss";
 import RegistrationItem from "../../components/Form/RegistrationItem.jsx";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-export const Form = () => {
+export const Registration = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const [phoneValue, setPhoneValue] = useState("");
+
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
@@ -33,6 +37,51 @@ export const Form = () => {
     } catch (err) {
       console.warn("ошибка", err);
     }
+  };
+
+  const onChangeNumber = (event) => {
+    const prefixNumber = (str) => {
+      if (str === "7") {
+        return "7 (";
+      }
+
+      if (str === "8") {
+        return "7 (";
+      }
+
+      if (str === "9") {
+        return "7 (9";
+      }
+
+      return "7 (";
+    };
+
+    const value = event.target.value.replace(/\D+/g, "");
+    const numberLength = 11;
+
+    let result = "+";
+
+    for (let i = 0; i < value.length && i < numberLength; i++) {
+      switch (i) {
+        case 0:
+          result += prefixNumber(value[i]);
+          continue;
+        case 4:
+          result += ") ";
+          break;
+        case 7:
+          result += "-";
+          break;
+        case 9:
+          result += "-";
+          break;
+        default:
+          break;
+      }
+      result += value[i];
+    }
+
+    setPhoneValue(result);
   };
 
   const checkPassword = () => {
@@ -69,9 +118,19 @@ export const Form = () => {
                 type="tel"
                 {...register("phoneNumber", {
                   pattern: /^(\+?\d{1,})$/i,
-                  required: true,
+                  required: "Mobile number is required.",
+                  minLength: {
+                    value: 11,
+                    message: "This input must exceed 10 characters",
+                  },
                 })}
+                onChange={onChangeNumber}
+                value={phoneValue}
               />
+              {errors.mobile?.type === "required" &&
+                "Mobile Number is required"}
+              {errors.mobile?.type === "minLength" &&
+                "Min Length 11 characters"}
             </RegistrationItem>
           </div>
 
@@ -94,6 +153,7 @@ export const Form = () => {
                 id="password"
                 type="password"
                 {...register("password", {
+                  pattern: /^[\d\w@-]{8}$/i,
                   required: true,
                   validate: checkPassword,
                 })}

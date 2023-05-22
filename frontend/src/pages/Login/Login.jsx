@@ -2,7 +2,7 @@ import React from "react";
 import RegistrationItem from "../../components/Form/RegistrationItem";
 import style from "./style.module.scss";
 import Button from "../../components/Button/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
@@ -13,7 +13,26 @@ export const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    const { email, password } = data;
+    const url = "http://localhost:8000/auth/token/login/";
+    try {
+      await axios
+        .post(url, {
+          email: email,
+          password: password,
+        })
+        .then((res) => {
+          if (res.status === 201) {
+            navigate("/login");
+          }
+        });
+    } catch (err) {
+      console.warn("ошибка", err);
+    }
+  };
 
   return (
     <div className={style.login}>
@@ -50,15 +69,16 @@ export const Login = () => {
           </div>
 
           <div className={(style.login__memory, style.memory)}>
-            <label className={style.memory__label} htmlFor="remember-user">
-              Remember me
-            </label>
+            <span className={style.memory__customInput}></span>
             <input
               className={style.memory__input}
               id="remember-user"
               type="checkbox"
             />
-            <span className={style.memory__customInput}></span>
+
+            <label className={style.memory__label} htmlFor="remember-user">
+              Remember me
+            </label>
           </div>
 
           <div className={style.login__button}>
