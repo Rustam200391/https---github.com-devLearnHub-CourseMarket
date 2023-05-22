@@ -69,7 +69,7 @@ export const Login = () => {
           </div>
 
           <div className={(style.login__memory, style.memory)}>
-            <span className={style.memory__customInput}></span>
+            {/* <span className={style.memory__customInput}></span> */}
             <input
               className={style.memory__input}
               id="remember-user"

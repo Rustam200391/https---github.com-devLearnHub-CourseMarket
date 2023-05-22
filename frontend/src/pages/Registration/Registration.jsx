@@ -84,6 +84,9 @@ export const Registration = () => {
     setPhoneValue(result);
   };
 
+  const regexpPass = /^[a-z0-9!?]{8,}$/;
+  //регулярное выражение для пароля состоящего из букв и цифр с нижним подчеркиванием и знаков ! и ? и все это в количестве от 8 символов
+
   const checkPassword = () => {
     const password = document.getElementById("password").value;
     const confirmpswd = document.getElementById("confirmpswd").value;
@@ -153,7 +156,7 @@ export const Registration = () => {
                 id="password"
                 type="password"
                 {...register("password", {
-                  pattern: /^[\d\w@-]{8}$/i,
+                  pattern: regexpPass,
                   required: true,
                   validate: checkPassword,
                 })}
