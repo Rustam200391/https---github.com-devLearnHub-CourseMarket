@@ -126,7 +126,6 @@ export const Registration = () => {
               <input
                 type="tel"
                 {...register("phoneNumber", {
-                  pattern: /\+7\(\d{3}\)\d{3}-\d{2}-\d{2}/,
                   required: "Mobile number is required.",
                   minLength: {
                     value: 11,
