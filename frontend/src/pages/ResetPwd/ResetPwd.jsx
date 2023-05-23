@@ -19,6 +19,9 @@ export const ResetPassword = () => {
     return password === confirmpswd || false;
   };
 
+  const regexpPass = /^[a-z0-9!?]{8,}$/;
+  //регулярное выражение для пароля состоящего из букв и цифр с нижним подчеркиванием и знаков ! и ? и все это в количестве от 8 символов
+
   return (
     <div className={style.reset}>
       <section className={style.reset__container}>
@@ -37,6 +40,7 @@ export const ResetPassword = () => {
                 id="password"
                 type="password"
                 {...register("password", {
+                  pattern: regexpPass,
                   required: true,
                   validate: checkPassword,
                 })}
@@ -52,6 +56,7 @@ export const ResetPassword = () => {
                 id="confirmpswd"
                 type="password"
                 {...register("confirmpwd", {
+                  pattern: regexpPass,
                   required: true,
                   validate: checkPassword,
                 })}

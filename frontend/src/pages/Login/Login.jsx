@@ -34,6 +34,9 @@ export const Login = () => {
     }
   };
 
+  const regexpPass = /^[a-z0-9!?]{8,}$/;
+  //регулярное выражение для пароля состоящего из букв и цифр с нижним подчеркиванием и знаков ! и ? и все это в количестве от 8 символов
+
   return (
     <div className={style.login}>
       <section className={style.login__container}>
@@ -49,7 +52,13 @@ export const Login = () => {
         >
           <div className={style.login__item}>
             <RegistrationItem title="email" error={errors.login}>
-              <input {...register("email", { required: true })} type="text" />
+              <input
+                {...register("email", {
+                  required: true,
+                  // placeholder: "*****@domen.ru/com/net",
+                })}
+                type="text"
+              />
             </RegistrationItem>
           </div>
           <div className={style.login__item}>
@@ -63,6 +72,7 @@ export const Login = () => {
                 type="password"
                 {...register("password", {
                   required: true,
+                  pattern: regexpPass,
                 })}
               />
             </RegistrationItem>
