@@ -13,8 +13,6 @@ export const Registration = () => {
     formState: { errors },
   } = useForm();
 
-  // const [phoneValue, setPhoneValue] = useState("");
-
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
@@ -40,53 +38,55 @@ export const Registration = () => {
     }
   };
 
-  // const onChangeNumber = (event) => {
-  //   const prefixNumber = (str) => {
-  //     if (str === "7") {
-  //       return "7 (";
-  //     }
+  const [phoneValue, setPhoneValue] = useState("");
 
-  //     if (str === "8") {
-  //       return "7 (";
-  //     }
+  const onChangeNumber = (event) => {
+    const prefixNumber = (str) => {
+      if (str === "7") {
+        return "7 (";
+      }
 
-  //     if (str === "9") {
-  //       return "7 (9";
-  //     }
+      if (str === "8") {
+        return "7 (";
+      }
 
-  //     return "7 (";
-  //   };
+      if (str === "9") {
+        return "7 (9";
+      }
 
-  //   const value = event.target.value.replace(/\D+/g, "");
-  //   const numberLength = 11;
+      return "7 (";
+    };
 
-  //   let result = "+";
+    const value = event.target.value.replace(/\D+/g, "");
+    const numberLength = 11;
 
-  //   for (let i = 0; i < value.length && i < numberLength; i++) {
-  //     switch (i) {
-  //       case 0:
-  //         result += prefixNumber(value[i]);
-  //         continue;
-  //       case 4:
-  //         result += ") ";
-  //         break;
-  //       case 7:
-  //         result += "-";
-  //         break;
-  //       case 9:
-  //         result += "-";
-  //         break;
-  //       default:
-  //         break;
-  //     }
-  //     result += value[i];
-  //   }
+    let result = "+";
 
-  //   setPhoneValue(result);
-  // };
+    for (let i = 0; i < value.length && i < numberLength; i++) {
+      switch (i) {
+        case 0:
+          result += prefixNumber(value[i]);
+          continue;
+        case 4:
+          result += ") ";
+          break;
+        case 7:
+          result += "-";
+          break;
+        case 9:
+          result += "-";
+          break;
+        default:
+          break;
+      }
+      result += value[i];
+    }
+
+    setPhoneValue(result);
+  };
 
   const regexpPass = /^[a-z0-9!?]{8,}$/;
-  //регулярное выражение для пароля состоящего из букв и цифр с нижним подчеркиванием и знаков ! и ? и все это в количестве от 8 символов
+  //регулярное выражение для пароля состоящего из букв и цифр с нижним подчеркиванием и знаков ! и ? от 8 символов
 
   const checkPassword = () => {
     const password = document.getElementById("password").value;
@@ -110,9 +110,14 @@ export const Registration = () => {
           <div className={style.form__list}>
             <RegistrationItem title="login" error={errors.login}>
               <input
-                {...register("username", { required: true })}
+                {...register("username", {
+                  required: "username is required.",
+                })}
                 type="text"
               />
+              {errors.username?.type === "required" && (
+                <span role="alert">username is required</span>
+              )}
             </RegistrationItem>
           </div>
 
@@ -121,19 +126,20 @@ export const Registration = () => {
               <input
                 type="tel"
                 {...register("phoneNumber", {
-                  pattern: /^(\+?\d{1,})$/i,
+                  pattern: /\+7\(\d{3}\)\d{3}-\d{2}-\d{2}/,
                   required: "Mobile number is required.",
                   minLength: {
                     value: 11,
-                    message: "This input must exceed 10 characters",
+                    message: "This input must exceed 11 characters",
                   },
                 })}
-                // onChange={onChangeNumber}
-                // value={phoneValue}
+                onChange={onChangeNumber}
+                value={phoneValue}
               />
-              {errors.mobile?.type === "required" &&
-                "Mobile Number is required"}
-              {errors.mobile?.type === "minLength" &&
+              {errors.phoneNumber?.type === "required" && (
+                <span role="alert">mobile Number is required</span>
+              )}
+              {errors.phoneNumber?.type === "minLength" &&
                 "Min Length 11 characters"}
             </RegistrationItem>
           </div>
@@ -149,6 +155,12 @@ export const Registration = () => {
                 })}
               />
             </RegistrationItem>
+            {errors.email?.type === "required" && (
+              <span role="alert">email is required</span>
+            )}
+            {errors.email?.type === "minLength" && (
+              <span role="alert">min Length 11 characters</span>
+            )}
           </div>
 
           <div className={style.form__list}>
@@ -163,6 +175,12 @@ export const Registration = () => {
                 })}
               />
             </RegistrationItem>
+            {errors.password?.type === "required" && (
+              <span>password is required</span>
+            )}
+            {errors.password?.type === "minLength" && (
+              <span>min Length 9 characters</span>
+            )}
           </div>
 
           <div className={style.login__list}>
@@ -178,6 +196,9 @@ export const Registration = () => {
                   validate: checkPassword,
                 })}
               />
+              {errors.confirmpwd?.type === "required" && (
+                <span role="alert">confirmpwd is not usebale</span>
+              )}
             </RegistrationItem>
           </div>
 
