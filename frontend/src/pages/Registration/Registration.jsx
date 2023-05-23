@@ -13,13 +13,14 @@ export const Registration = () => {
     formState: { errors },
   } = useForm();
 
-  const [phoneValue, setPhoneValue] = useState("");
+  // const [phoneValue, setPhoneValue] = useState("");
 
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     const { phoneNumber, username, email, password, re_password } = data;
     const url = "http://localhost:8000/api/v1/users/";
+    // console.log(data);
     try {
       await axios
         .post(url, {
@@ -39,50 +40,50 @@ export const Registration = () => {
     }
   };
 
-  const onChangeNumber = (event) => {
-    const prefixNumber = (str) => {
-      if (str === "7") {
-        return "7 (";
-      }
+  // const onChangeNumber = (event) => {
+  //   const prefixNumber = (str) => {
+  //     if (str === "7") {
+  //       return "7 (";
+  //     }
 
-      if (str === "8") {
-        return "7 (";
-      }
+  //     if (str === "8") {
+  //       return "7 (";
+  //     }
 
-      if (str === "9") {
-        return "7 (9";
-      }
+  //     if (str === "9") {
+  //       return "7 (9";
+  //     }
 
-      return "7 (";
-    };
+  //     return "7 (";
+  //   };
 
-    const value = event.target.value.replace(/\D+/g, "");
-    const numberLength = 11;
+  //   const value = event.target.value.replace(/\D+/g, "");
+  //   const numberLength = 11;
 
-    let result = "+";
+  //   let result = "+";
 
-    for (let i = 0; i < value.length && i < numberLength; i++) {
-      switch (i) {
-        case 0:
-          result += prefixNumber(value[i]);
-          continue;
-        case 4:
-          result += ") ";
-          break;
-        case 7:
-          result += "-";
-          break;
-        case 9:
-          result += "-";
-          break;
-        default:
-          break;
-      }
-      result += value[i];
-    }
+  //   for (let i = 0; i < value.length && i < numberLength; i++) {
+  //     switch (i) {
+  //       case 0:
+  //         result += prefixNumber(value[i]);
+  //         continue;
+  //       case 4:
+  //         result += ") ";
+  //         break;
+  //       case 7:
+  //         result += "-";
+  //         break;
+  //       case 9:
+  //         result += "-";
+  //         break;
+  //       default:
+  //         break;
+  //     }
+  //     result += value[i];
+  //   }
 
-    setPhoneValue(result);
-  };
+  //   setPhoneValue(result);
+  // };
 
   const regexpPass = /^[a-z0-9!?]{8,}$/;
   //регулярное выражение для пароля состоящего из букв и цифр с нижним подчеркиванием и знаков ! и ? и все это в количестве от 8 символов
@@ -127,8 +128,8 @@ export const Registration = () => {
                     message: "This input must exceed 10 characters",
                   },
                 })}
-                onChange={onChangeNumber}
-                value={phoneValue}
+                // onChange={onChangeNumber}
+                // value={phoneValue}
               />
               {errors.mobile?.type === "required" &&
                 "Mobile Number is required"}
