@@ -18,7 +18,7 @@ export const Registration = () => {
   const onSubmit = async (data) => {
     const { phoneNumber, username, email, password, re_password } = data;
     const url = "http://localhost:8000/api/v1/users/";
-    // console.log(data);
+    console.log(data);
     try {
       await axios
         .post(url, {
@@ -30,7 +30,7 @@ export const Registration = () => {
         })
         .then((res) => {
           if (res.status === 201) {
-            navigate("/dashboard");
+            // navigate("/dashboard");
           }
         });
     } catch (err) {
