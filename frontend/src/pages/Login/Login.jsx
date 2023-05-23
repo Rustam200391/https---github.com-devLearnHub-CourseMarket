@@ -26,7 +26,7 @@ export const Login = () => {
         })
         .then((res) => {
           if (res.status === 201) {
-            navigate("/login");
+            navigate("/dashboard");
           }
         });
     } catch (err) {

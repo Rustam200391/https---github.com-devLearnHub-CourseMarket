@@ -122,7 +122,7 @@ export const Registration = () => {
           </div>
 
           <div className={style.form__list}>
-            <RegistrationItem title="Phone" error={errors.phone}>
+            <RegistrationItem title="phone" error={errors.phone}>
               <input
                 type="tel"
                 {...register("phoneNumber", {
@@ -136,31 +136,31 @@ export const Registration = () => {
                 value={phoneValue}
               />
               {errors.phoneNumber?.type === "required" && (
-                <span role="alert">mobile Number is required</span>
+                <span role="alert">mobile number is required</span>
               )}
-              {errors.phoneNumber?.type === "minLength" && (
+              {/* {errors.phoneNumber?.type === "minLength" && (
                 <span role="alert">min Length 11 characters</span>
-              )}
+              )} */}
             </RegistrationItem>
           </div>
 
           <div className={style.form__list}>
-            <RegistrationItem title="email" error={errors.email}>
+            <RegistrationItem title="Email" error={errors.email}>
               <input
                 type="text"
                 {...register("email", {
                   pattern:
                     /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu,
-                  required: true,
+                  required: "email is required",
                 })}
               />
+              {errors.email?.type === "required" && (
+                <span role="alert">adress is required</span>
+              )}
+              {errors.email?.type === "minLength" && (
+                <span role="alert">min Length 11 characters</span>
+              )}
             </RegistrationItem>
-            {errors.email?.type === "required" && (
-              <span role="alert">email is required</span>
-            )}
-            {errors.email?.type === "minLength" && (
-              <span role="alert">min Length 11 characters</span>
-            )}
           </div>
 
           <div className={style.form__list}>
@@ -197,7 +197,7 @@ export const Registration = () => {
                 })}
               />
               {errors.re_password?.type === "required" && (
-                <span role="alert">confirmpwd is not usebale</span>
+                <span role="alert">confirmpwd is required</span>
               )}
             </RegistrationItem>
           </div>
