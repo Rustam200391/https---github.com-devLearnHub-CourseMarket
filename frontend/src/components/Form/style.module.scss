@@ -10,7 +10,9 @@ $red: #611c24;
 	}
 }
 
-.inputWrapper {
+.label {
+	display: flex;
+	flex-direction: column;
 	& > input {
 		height: 30px;
 		outline: none;

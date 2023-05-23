@@ -5,7 +5,7 @@ const RegistrationItem = (props) => {
     <div className={style.item}>
       <p className={style.title}>{props?.title}</p>
       <label
-        className={`${style.inputWrapper} ${
+        className={`${style.label} ${
           props.error === undefined ? style.correct : style.error
         }`}
       >
