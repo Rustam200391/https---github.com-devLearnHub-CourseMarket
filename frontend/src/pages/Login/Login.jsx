@@ -25,6 +25,7 @@ export const Login = () => {
           password: password,
         })
         .then((res) => {
+          console.log(res);
           if (res.status === 201) {
             navigate("/dashboard");
           }
