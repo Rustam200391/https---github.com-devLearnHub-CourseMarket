@@ -139,8 +139,9 @@ export const Registration = () => {
               {errors.phoneNumber?.type === "required" && (
                 <span role="alert">mobile Number is required</span>
               )}
-              {errors.phoneNumber?.type === "minLength" &&
-                "Min Length 11 characters"}
+              {errors.phoneNumber?.type === "minLength" && (
+                <span role="alert">min Length 11 characters</span>
+              )}
             </RegistrationItem>
           </div>
 
@@ -196,7 +197,7 @@ export const Registration = () => {
                   validate: checkPassword,
                 })}
               />
-              {errors.confirmpwd?.type === "required" && (
+              {errors.re_password?.type === "required" && (
                 <span role="alert">confirmpwd is not usebale</span>
               )}
             </RegistrationItem>
