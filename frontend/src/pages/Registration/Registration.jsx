@@ -30,7 +30,7 @@ export const Registration = () => {
         })
         .then((res) => {
           if (res.status === 201) {
-            // navigate("/dashboard");
+            navigate("/dashboard");
           }
         });
     } catch (err) {
@@ -108,7 +108,7 @@ export const Registration = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className={style.form__list}>
-            <RegistrationItem title="login" error={errors.login}>
+            <RegistrationItem title="login" error={errors.username}>
               <input
                 {...register("username", {
                   required: "username is required.",
@@ -122,11 +122,11 @@ export const Registration = () => {
           </div>
 
           <div className={style.form__list}>
-            <RegistrationItem title="phone" error={errors.phone}>
+            <RegistrationItem title="phoneNumber" error={errors.phoneNumber}>
               <input
-                type="tel"
+                type="text"
                 {...register("phoneNumber", {
-                  required: "Mobile number is required.",
+                  required: true,
                   minLength: {
                     value: 11,
                     message: "This input must exceed 11 characters",
@@ -138,20 +138,20 @@ export const Registration = () => {
               {errors.phoneNumber?.type === "required" && (
                 <span role="alert">mobile number is required</span>
               )}
-              {/* {errors.phoneNumber?.type === "minLength" && (
+              {errors.phoneNumber?.type === "minLength" && (
                 <span role="alert">min Length 11 characters</span>
-              )} */}
+              )}
             </RegistrationItem>
           </div>
 
           <div className={style.form__list}>
-            <RegistrationItem title="Email" error={errors.email}>
+            <RegistrationItem title="email" error={errors.email}>
               <input
                 type="text"
                 {...register("email", {
+                  required: true,
                   pattern:
                     /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu,
-                  required: "email is required",
                 })}
               />
               {errors.email?.type === "required" && (
@@ -186,7 +186,7 @@ export const Registration = () => {
           <div className={style.login__list}>
             <RegistrationItem
               title="confirm password"
-              error={errors.confirmpwd}
+              error={errors.re_password}
             >
               <input
                 id="confirmpswd"

@@ -18,6 +18,7 @@ export const Login = () => {
   const onSubmit = async (data) => {
     const { email, password } = data;
     const url = "http://localhost:8000/auth/token/login/";
+    // console.log(data);
     try {
       await axios
         .post(url, {
@@ -25,7 +26,7 @@ export const Login = () => {
           password: password,
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           if (res.status === 201) {
             navigate("/dashboard");
           }
