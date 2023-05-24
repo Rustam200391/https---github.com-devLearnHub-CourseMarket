@@ -13,6 +13,7 @@ $red: #611c24;
 .label {
 	display: flex;
 	flex-direction: column;
+	min-height: 50px;
 	& > input {
 		height: 30px;
 		outline: none;
@@ -21,6 +22,10 @@ $red: #611c24;
 		border-radius: 5px;
 		border: none;
 		transition: box-shadow 0.3s ease 0s;
+	}
+	& > span {
+		font-size: 14px;
+		
 	}
 }
 

@@ -36,9 +36,6 @@ export const Login = () => {
     }
   };
 
-  const regexpPass = /^[a-z0-9!?]{8,}$/;
-  //регулярное выражение для пароля состоящего из букв и цифр с нижним подчеркиванием и знаков ! и ? и все это в количестве от 8 символов
-
   return (
     <div className={style.login}>
       <section className={style.login__container}>
@@ -53,30 +50,40 @@ export const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className={style.login__item}>
-            <RegistrationItem title="email" error={errors.login}>
+            <RegistrationItem title="email" error={errors.email}>
               <input
+                type="text"
                 {...register("email", {
                   required: true,
-                  // placeholder: "*****@domen.ru/com/net",
+                  pattern:
+                    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu,
                 })}
-                type="text"
               />
+              {errors.email?.type === "required" && (
+                <span role="alert">adress is required</span>
+              )}
+              {errors.email?.type === "minLength" && (
+                <span role="alert">min Length 11 characters</span>
+              )}
             </RegistrationItem>
           </div>
           <div className={style.login__item}>
-            <RegistrationItem
-              title="password"
-              type="password"
-              error={errors.password}
-            >
+            <RegistrationItem title="password" error={errors.password}>
               <input
                 id="password"
                 type="password"
                 {...register("password", {
+                  pattern: /^[a-z0-9!?]{8,}$/,
                   required: true,
-                  pattern: regexpPass,
+                  // validate: checkPassword,
                 })}
               />
+              {errors.password?.type === "required" && (
+                <span>password is required</span>
+              )}
+              {errors.password?.type === "minLength" && (
+                <span>min Length 9 characters</span>
+              )}
             </RegistrationItem>
           </div>
 

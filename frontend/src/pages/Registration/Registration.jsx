@@ -85,13 +85,20 @@ export const Registration = () => {
     setPhoneValue(result);
   };
 
-  const regexpPass = /^[a-z0-9!?]{8,}$/;
-  //регулярное выражение для пароля состоящего из букв и цифр с нижним подчеркиванием и знаков ! и ? от 8 символов
-
   const checkPassword = () => {
     const password = document.getElementById("password").value;
     const confirmpswd = document.getElementById("confirmpswd").value;
-    return password === confirmpswd || false;
+    console.log("check1");
+    if (password === confirmpswd) {
+      console.log("check22222");
+      // Валидация обоих полей
+      // register("password", { validate: true });
+      // register("re_password", { validate: true });
+
+      return;
+    } else {
+      return false;
+    }
   };
 
   return (
@@ -107,7 +114,7 @@ export const Registration = () => {
           className={style.form__registration}
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className={style.form__list}>
+          <div className={style.form__item}>
             <RegistrationItem title="login" error={errors.username}>
               <input
                 {...register("username", {
@@ -121,7 +128,7 @@ export const Registration = () => {
             </RegistrationItem>
           </div>
 
-          <div className={style.form__list}>
+          <div className={style.form__item}>
             <RegistrationItem title="phoneNumber" error={errors.phoneNumber}>
               <input
                 type="text"
@@ -144,7 +151,7 @@ export const Registration = () => {
             </RegistrationItem>
           </div>
 
-          <div className={style.form__list}>
+          <div className={style.form__item}>
             <RegistrationItem title="email" error={errors.email}>
               <input
                 type="text"
@@ -163,24 +170,24 @@ export const Registration = () => {
             </RegistrationItem>
           </div>
 
-          <div className={style.form__list}>
+          <div className={style.form__item}>
             <RegistrationItem title="password" error={errors.password}>
               <input
                 id="password"
                 type="password"
                 {...register("password", {
-                  pattern: regexpPass,
+                  pattern: /^[a-z0-9!?]{8,}$/,
                   required: true,
                   validate: checkPassword,
                 })}
               />
+              {errors.password?.type === "required" && (
+                <span>password is required</span>
+              )}
+              {errors.password?.type === "minLength" && (
+                <span>min Length 9 characters</span>
+              )}
             </RegistrationItem>
-            {errors.password?.type === "required" && (
-              <span>password is required</span>
-            )}
-            {errors.password?.type === "minLength" && (
-              <span>min Length 9 characters</span>
-            )}
           </div>
 
           <div className={style.login__list}>
