@@ -2,9 +2,9 @@ import React from "react";
 import RegistrationItem from "../../components/Form/RegistrationItem";
 import style from "./style.module.scss";
 import Button from "../../components/Button/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-// import { useState } from "react";
+import axios from "axios";
 
 export const Login = () => {
   const {
@@ -13,29 +13,28 @@ export const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const navigate = useNavigate();
 
-  // const [checked, setChecked] = useState(false);
-
-  // const handleCheck = (e) => {
-  //   setChecked(e.target.checked);
-  //   console.log("Hello world!");
-  // };
-
-  // const onChange = () => {
-  //   const remember = document.getElementById("remember-user");
-  //   if (remember.checked) {
-  //     remember.className += "light";
-  //     console.log("mission accomplished");
-  //   } else {
-  //     remember.className -= "light";
-  //   }
-  //  сделать  на чистом js
-  // };
-  // const [checked, setChecked] = useState(false);
-  // const handleChange = () => {
-  //   setChecked(!checked);
-  // };
+  const onSubmit = async (data) => {
+    const { email, password } = data;
+    const url = "http://localhost:8000/auth/token/login/";
+    console.log(data);
+    try {
+      await axios
+        .post(url, {
+          email: email,
+          password: password,
+        })
+        .then((res) => {
+          console.log(res);
+          if (res.status === 200) {
+            navigate("/dashboard");
+          }
+        });
+    } catch (err) {
+      console.warn("ошибка", err);
+    }
+  };
 
   return (
     <div className={style.login}>
@@ -44,44 +43,61 @@ export const Login = () => {
           Log
           <span className={style.login__title_green}>In</span>
         </h1>
+
         <form
           action="POST"
           className={style.login__form}
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className={style.login__item}>
-            <RegistrationItem title="login" error={errors.login}>
-              <input {...register("login", { required: true })} type="text" />
+            <RegistrationItem title="email" error={errors.email}>
+              <input
+                type="text"
+                {...register("email", {
+                  required: true,
+                  pattern:
+                    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu,
+                })}
+              />
+              {errors.email?.type === "required" && (
+                <span role="alert">adress is required</span>
+              )}
+              {errors.email?.type === "minLength" && (
+                <span role="alert">min Length 11 characters</span>
+              )}
             </RegistrationItem>
           </div>
           <div className={style.login__item}>
-            <RegistrationItem
-              title="password"
-              type="password"
-              error={errors.password}
-            >
+            <RegistrationItem title="password" error={errors.password}>
               <input
                 id="password"
                 type="password"
                 {...register("password", {
+                  pattern: /^[a-z0-9!?]{8,}$/,
                   required: true,
+                  // validate: checkPassword,
                 })}
               />
+              {errors.password?.type === "required" && (
+                <span>password is required</span>
+              )}
+              {errors.password?.type === "minLength" && (
+                <span>min Length 9 characters</span>
+              )}
             </RegistrationItem>
           </div>
 
           <div className={(style.login__memory, style.memory)}>
-            <label className={style.memory__label} htmlFor="remember-user">
-              Remember me
-            </label>
+            {/* <span className={style.memory__customInput}></span> */}
             <input
               className={style.memory__input}
               id="remember-user"
               type="checkbox"
-              // checked={checked}
-              // onChange={handleCheck}
             />
-            <span className={style.memory__customInput}></span>
+
+            <label className={style.memory__label} htmlFor="remember-user">
+              Remember me
+            </label>
           </div>
 
           <div className={style.login__button}>
@@ -90,7 +106,7 @@ export const Login = () => {
         </form>
 
         <div className={style.links}>
-          <Link to="/forgotPwd">Forget password?</Link>
+          <Link to="/forgotPwd">Forgot password?</Link>
           <Link to="/registration">Create new account</Link>
         </div>
       </section>
