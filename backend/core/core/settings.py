@@ -31,9 +31,25 @@ SECRET_KEY = 'django-insecure-f=261ha^w3(0rb4mtz7hlnb74%q@owd*jl)f)_fkk6%=j3q%$2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost','127.0.0.1']
+# <<<<<<< HEAD
+# ALLOWED_HOSTS = ['0.0.0.0', 'localhost','127.0.0.1']
+# =======
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0', 'localhost']
+# >>>>>>> c8ef115ee96fefb7125cf24406b097939f9dd1dd
+
 
 # Application definition
+# MY EMAIL
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 2525
+EMAIL_HOST_USER = "course.market@mail.ru"
+SERVER_EMAIL = "course.market@mail.ru"
+DEFAULT_FROM_EMAIL = "course.market@mail.ru"
+EMAIL_HOST_PASSWORD = "MUH2h0ZsgGkTtDxKubDJ"
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -64,10 +80,14 @@ CORS_ORIGIN_WHITELIST = [
 
 
 DJOSER = {
-        'USER_CREATE_PASSWORD_RETYPE': True,
-        'SET_PASSWORD_RETYPE': True,
-    
-    }
+    'USER_CREATE_PASSWORD_RETYPE': True,
+    "PASSWORD_RESET_CONFIRM_URL": "password/reset/{uid}/{token}/",
+    'PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND': False,
+    'USERNAME_RESET_CONFIRM_URL': '#/username/reset/confirm/{uid}/{token}',
+    'ACTIVATION_URL': 'users/activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL': True,
+    'SERIALIZERS': {},
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [

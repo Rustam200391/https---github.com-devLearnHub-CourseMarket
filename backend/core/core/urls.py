@@ -22,7 +22,8 @@ from profiles.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('api/v1/test/', WomenAPI.as_view()), 
+    path('users/activate/<str:uid>/<str:token>/', RegisterAPIView.as_view()),
+    path('password/reset/<str:uid>/<str:token>/', PasswordResetAPIView.as_view()),
     path('api/v1/', include('djoser.urls')),
     re_path(r'^auth/', include('djoser.urls.authtoken')),
     
