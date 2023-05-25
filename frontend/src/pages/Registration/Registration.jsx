@@ -3,6 +3,7 @@ import { useState } from "react";
 import Button from "../../components/Button/Button";
 import style from "./style.module.scss";
 import RegistrationItem from "../../components/Form/RegistrationItem.jsx";
+import ModalWindow from "../../components/UI/ModalWindow/ModalWindow";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
@@ -14,11 +15,11 @@ export const Registration = () => {
   } = useForm();
 
   const navigate = useNavigate();
-
+  const [errorList, setErrorList] = useState({});
+  const [showModal, setShowModal] = useState(false);
   const onSubmit = async (data) => {
     const { phoneNumber, username, email, password, re_password } = data;
     const url = "http://localhost:8000/api/v1/users/";
-    console.log(data);
     try {
       await axios
         .post(url, {
@@ -32,6 +33,13 @@ export const Registration = () => {
           if (res.status === 201) {
             navigate("/dashboard");
           }
+        })
+        .catch((err) => {
+          console.log("ошибка от сервера");
+          console.log(err.response.data);
+          setErrorList(err.response.data);
+          setShowModal(true);
+          setTimeout(() => setShowModal(false), 5000);
         });
     } catch (err) {
       console.warn("ошибка", err);
@@ -45,15 +53,12 @@ export const Registration = () => {
       if (str === "7") {
         return "7 (";
       }
-
       if (str === "8") {
         return "7 (";
       }
-
       if (str === "9") {
         return "7 (9";
       }
-
       return "7 (";
     };
 
@@ -103,6 +108,7 @@ export const Registration = () => {
 
   return (
     <div className={style.form}>
+      <ModalWindow show={showModal} errorList={errorList} />
       <section className={style.form__container}>
         <h1 className={style.form__title}>
           Sign
@@ -115,7 +121,7 @@ export const Registration = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className={style.form__item}>
-            <RegistrationItem title="login" error={errors.username}>
+            <RegistrationItem title="Логин" error={errors.username}>
               <input
                 {...register("username", {
                   required: "username is required.",
@@ -129,7 +135,7 @@ export const Registration = () => {
           </div>
 
           <div className={style.form__item}>
-            <RegistrationItem title="phoneNumber" error={errors.phoneNumber}>
+            <RegistrationItem title="Телефон" error={errors.phoneNumber}>
               <input
                 type="text"
                 {...register("phoneNumber", {
@@ -152,7 +158,7 @@ export const Registration = () => {
           </div>
 
           <div className={style.form__item}>
-            <RegistrationItem title="email" error={errors.email}>
+            <RegistrationItem title="Email" error={errors.email}>
               <input
                 type="text"
                 {...register("email", {
