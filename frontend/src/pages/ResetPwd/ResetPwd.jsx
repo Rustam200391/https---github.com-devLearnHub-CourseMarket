@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import style from "./style.module.scss";
 import RegistrationItem from "../../components/Form/RegistrationItem";
 import Button from "../../components/Button/Button";
@@ -12,15 +11,31 @@ export const ResetPassword = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const navigate = useNavigate();
+
+  const onSubmit = async (data) => {
+    const { email } = data;
+    const url = "http://localhost:8000/api/v1/users/reset_password/";
+    try {
+      await axios
+        .post(url, {
+          email: email,
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            navigate("/reset");
+          }
+        });
+    } catch (err) {
+      console.warn("ошибка", err);
+    }
+  };
+
   const checkPassword = () => {
     const password = document.getElementById("password").value;
     const confirmpswd = document.getElementById("confirmpswd").value;
     return password === confirmpswd || false;
   };
-
-  const regexpPass = /^[a-z0-9!?]{8,}$/;
-  //регулярное выражение для пароля состоящего из букв и цифр с нижним подчеркиванием и знаков ! и ? и все это в количестве от 8 символов
 
   return (
     <div className={style.reset}>
@@ -35,32 +50,41 @@ export const ResetPassword = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className={style.reset__list}>
-            <RegistrationItem title="password" error={errors.password}>
+            <RegistrationItem title="новый пароль" error={errors.password}>
               <input
                 id="password"
                 type="password"
-                {...register("password", {
-                  pattern: regexpPass,
+                {...register("new_password", {
+                  pattern: /^[a-z0-9!?]{8,}$/,
                   required: true,
                   validate: checkPassword,
                 })}
               />
+              {errors.password?.type === "required" && (
+                <span>Введите пароль</span>
+              )}
+              {errors.password?.type === "minLength" && (
+                <span>min Length 9 characters</span>
+              )}
             </RegistrationItem>
           </div>
           <div className={style.reset__list}>
             <RegistrationItem
-              title="confirm password"
-              error={errors.confirmpwd}
+              title="подтверждение пароля"
+              error={errors.re_password}
             >
               <input
                 id="confirmpswd"
                 type="password"
-                {...register("confirmpwd", {
-                  pattern: regexpPass,
+                {...register("re_password", {
+                  pattern: /^[a-z0-9!?]{8,}$/,
                   required: true,
                   validate: checkPassword,
                 })}
               />
+              {errors.re_password?.type === "required" && (
+                <span role="alert">Повторите пароль для подтверждения</span>
+              )}
             </RegistrationItem>
           </div>
         </form>

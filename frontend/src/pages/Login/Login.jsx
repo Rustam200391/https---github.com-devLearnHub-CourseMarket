@@ -50,7 +50,7 @@ export const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className={style.login__item}>
-            <RegistrationItem title="email" error={errors.email}>
+            <RegistrationItem title="электронная почта" error={errors.email}>
               <input
                 type="text"
                 {...register("email", {
@@ -60,7 +60,7 @@ export const Login = () => {
                 })}
               />
               {errors.email?.type === "required" && (
-                <span role="alert">adress is required</span>
+                <span role="alert">Введите почту</span>
               )}
               {errors.email?.type === "minLength" && (
                 <span role="alert">min Length 11 characters</span>
@@ -68,7 +68,7 @@ export const Login = () => {
             </RegistrationItem>
           </div>
           <div className={style.login__item}>
-            <RegistrationItem title="password" error={errors.password}>
+            <RegistrationItem title="пароль" error={errors.password}>
               <input
                 id="password"
                 type="password"
@@ -79,7 +79,7 @@ export const Login = () => {
                 })}
               />
               {errors.password?.type === "required" && (
-                <span>password is required</span>
+                <span>Введите пароль</span>
               )}
               {errors.password?.type === "minLength" && (
                 <span>min Length 9 characters</span>
@@ -96,7 +96,7 @@ export const Login = () => {
             />
 
             <label className={style.memory__label} htmlFor="remember-user">
-              Remember me
+              Запомнить
             </label>
           </div>
 

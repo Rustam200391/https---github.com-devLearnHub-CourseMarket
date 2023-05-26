@@ -129,7 +129,7 @@ export const Registration = () => {
                 type="text"
               />
               {errors.username?.type === "required" && (
-                <span role="alert">username is required</span>
+                <span role="alert">Введите логин</span>
               )}
             </RegistrationItem>
           </div>
@@ -149,7 +149,7 @@ export const Registration = () => {
                 value={phoneValue}
               />
               {errors.phoneNumber?.type === "required" && (
-                <span role="alert">mobile number is required</span>
+                <span role="alert">Введите номер</span>
               )}
               {errors.phoneNumber?.type === "minLength" && (
                 <span role="alert">min Length 11 characters</span>
@@ -158,7 +158,7 @@ export const Registration = () => {
           </div>
 
           <div className={style.form__item}>
-            <RegistrationItem title="Email" error={errors.email}>
+            <RegistrationItem title="Электронная почта" error={errors.email}>
               <input
                 type="text"
                 {...register("email", {
@@ -168,7 +168,7 @@ export const Registration = () => {
                 })}
               />
               {errors.email?.type === "required" && (
-                <span role="alert">adress is required</span>
+                <span role="alert">Введите почту</span>
               )}
               {errors.email?.type === "minLength" && (
                 <span role="alert">min Length 11 characters</span>
@@ -177,7 +177,7 @@ export const Registration = () => {
           </div>
 
           <div className={style.form__item}>
-            <RegistrationItem title="password" error={errors.password}>
+            <RegistrationItem title="Пароль" error={errors.password}>
               <input
                 id="password"
                 type="password"
@@ -188,7 +188,7 @@ export const Registration = () => {
                 })}
               />
               {errors.password?.type === "required" && (
-                <span>password is required</span>
+                <span>Введите пароль</span>
               )}
               {errors.password?.type === "minLength" && (
                 <span>min Length 9 characters</span>
@@ -198,7 +198,7 @@ export const Registration = () => {
 
           <div className={style.login__list}>
             <RegistrationItem
-              title="confirm password"
+              title="Подтверждение пароля"
               error={errors.re_password}
             >
               <input
@@ -210,7 +210,7 @@ export const Registration = () => {
                 })}
               />
               {errors.re_password?.type === "required" && (
-                <span role="alert">confirmpwd is required</span>
+                <span role="alert">Повторите пароль для подтверждения</span>
               )}
             </RegistrationItem>
           </div>
