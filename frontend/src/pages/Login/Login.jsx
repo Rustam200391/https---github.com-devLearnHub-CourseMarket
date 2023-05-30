@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import RegistrationItem from "../../components/Form/RegistrationItem";
 import style from "./style.module.scss";
 import Button from "../../components/Button/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import ModalWindow from "../../components/UI/ModalWindow/ModalWindow";
 
 export const Login = () => {
   const {
@@ -13,7 +14,18 @@ export const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const [errorList, setErrorList] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+
+  // const onEvent = () => {
+  //   if (email === data.email) {
+  //     res.status === 200;
+  //   } else {
+  //     // console.log("Данный пароль уже используется другим полльзователем");
+  //     <ModalWindow show={showModal} errorList={errorList} />;
+  //   }
+  // };
 
   const onSubmit = async (data) => {
     const { email, password } = data;
@@ -33,11 +45,16 @@ export const Login = () => {
         });
     } catch (err) {
       console.warn("ошибка", err);
+      console.log(err.response.data);
+      setErrorList(err.response.data);
+      setShowModal(true);
+      setTimeout(() => setShowModal(false), 5000);
     }
   };
 
   return (
     <div className={style.login}>
+      <ModalWindow show={showModal} errorList={errorList} />
       <section className={style.login__container}>
         <h1 className={style.login__title}>
           Log
