@@ -41,7 +41,7 @@ class UserManager(BaseUserManager):
 class UserData(AbstractUser):
     """Модель пользователя"""
     email = models.EmailField(_("email address"), unique=True)
-    phoneNumber = PhoneNumberField(unique = True, null = False, blank = False, region="RU")
+    phoneNumber = PhoneNumberField(unique = True, null = False, blank = False, region="RU", verbose_name="номером телефона")
     username = models.CharField(max_length=200, verbose_name="login")
     
     USERNAME_FIELD = "email"
