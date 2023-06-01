@@ -11,6 +11,7 @@ export const ResetPassword = () => {
     formState: { errors },
   } = useForm();
 
+  //в ссылку вставить id и токен
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
@@ -92,7 +93,7 @@ export const ResetPassword = () => {
           <Button text="Reset Password " type="submit" />
         </div>
         <div className={style.links}>
-          <Link to="/">Go Home</Link>
+          <Link to="/:uid/:token/">Go Home</Link>
         </div>
       </section>
     </div>

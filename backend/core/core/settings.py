@@ -78,13 +78,15 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
 
+DOMAIN = 'localhost:3000'
 
+SITE_NAME = 'frontend'
 DJOSER = {
     'USER_CREATE_PASSWORD_RETYPE': True,
     "PASSWORD_RESET_CONFIRM_URL": "password/reset/{uid}/{token}/",
     'PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND': False,
     'USERNAME_RESET_CONFIRM_URL': '#/username/reset/confirm/{uid}/{token}',
-    'ACTIVATION_URL': 'users/activate/{uid}/{token}',
+    'ACTIVATION_URL': '{uid}/{token}',
     'SEND_ACTIVATION_EMAIL': True,
     'SERIALIZERS': {},
 }

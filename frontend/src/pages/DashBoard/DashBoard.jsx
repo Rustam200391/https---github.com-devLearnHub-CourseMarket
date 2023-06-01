@@ -6,16 +6,12 @@ export const DashBoard = () => {
   return (
     <section className={style.container}>
       <div className="container">
-        <div className="list__wrapper">
-
-        </div>
-        <div className="layout__content">
-          
-        </div>
+        <div className="list__wrapper"></div>
+        <div className="layout__content"></div>
       </div>
       <a href="https://i.learnhub.ru/courses" alt="LeatnHub"></a>
       <div className={style.text}>Вы успешно зашли к нам на огонёк</div>
-      <Link to="/">Вход в аккаунт</Link>
+      <Link to="/:uid/:token/">Вход в аккаунт</Link>
     </section>
   );
 };

@@ -29,6 +29,7 @@ export const Login = () => {
 
   const onSubmit = async (data) => {
     const { email, password } = data;
+    // const url = "http://localhost:8000/users/activate/{uid}/{token}";
     const url = "http://localhost:8000/auth/token/login/";
     console.log(data);
     try {
@@ -54,6 +55,8 @@ export const Login = () => {
 
   return (
     <div className={style.login}>
+      {/* <h2 className="Order">Order: {params.uid}</h2>
+      <h2 className="Order">Order: {params.token}</h2> */}
       <ModalWindow show={showModal} errorList={errorList} />
       <section className={style.login__container}>
         <h1 className={style.login__title}>

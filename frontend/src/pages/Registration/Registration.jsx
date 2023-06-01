@@ -221,7 +221,7 @@ export const Registration = () => {
         </form>
 
         <div className={style.links}>
-          <Link to="/">Go home</Link>
+          <Link to="/:uid/:token/">Go home</Link>
         </div>
       </section>
     </div>
