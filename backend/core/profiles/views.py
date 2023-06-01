@@ -14,7 +14,7 @@ class RegisterAPIView(APIView):
         user_data = {"uid": uid, "token": token}
         result = requests.post(activate_url, data=user_data)
         if result.status_code == 204 or 403:
-            return (bytes("тут будет редирект на страницу авторизации", 'utf-8')) # 204 всё хорошо, 403 пользователь активен.
+            return Response('http://localhost:3000/') # 204 всё хорошо, 403 пользователь активен.
         else:
             return Response(bytes("тут будет редирект на страницу ошибки", 'utf-8')) #error 400
 

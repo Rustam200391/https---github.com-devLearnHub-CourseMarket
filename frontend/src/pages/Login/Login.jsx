@@ -29,8 +29,12 @@ export const Login = () => {
 
   const onSubmit = async (data) => {
     const { email, password } = data;
-    // const url = "http://localhost:8000/users/activate/{uid}/{token}";
-    const url = "http://localhost:8000/auth/token/login/";
+    вытащить; // из ссылки по которой переходим из почты uid,token
+    const url = "http://localhost:8000/users/activate/";
+    // на этот адрес необходимо отправить данные
+    // uid,token,email,password - если в json формате, то uid token не нужны
+
+    // const url = "http://localhost:8000/auth/token/login/";
     console.log(data);
     try {
       await axios
