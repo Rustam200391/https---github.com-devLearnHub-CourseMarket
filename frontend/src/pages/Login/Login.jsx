@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import RegistrationItem from "../../components/Form/RegistrationItem";
 import style from "./style.module.scss";
 import Button from "../../components/Button/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import ModalWindow from "../../components/UI/ModalWindow/ModalWindow";
@@ -16,22 +16,35 @@ export const Login = () => {
 
   const [errorList, setErrorList] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [uid, setUid] = useState();
+  const [token, setToken] = useState();
+
+  useEffect(() => {
+    const arrUid = url.split("/");
+    console.log(arrUid);
+    setUid(arrUid[1]);
+    console.log(uid);
+    setToken(arrUid[2]);
+    console.log(token);
+  });
+
+  const url = useLocation().pathname;
+  console.log(url);
+
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     const { email, password } = data;
     // вытащить из ссылки по которой переходим из почты uid,token
     const url = "http://localhost:8000/users/activate/";
-    // на этот адрес необходимо отправить данные
-    // uid,token,email,password - если в json формате, то uid token не нужны
 
-    // const url = "http://localhost:8000/auth/token/login/";
-    // console.log(data);
     try {
       await axios
         .post(url, {
           email: email,
           password: password,
+          uid: uid,
+          token: token,
         })
         .then((res) => {
           console.log(res);
@@ -47,12 +60,6 @@ export const Login = () => {
       setTimeout(() => setShowModal(false), 5000);
     }
   };
-
-  axios
-    .get("http://localhost:3000/Mg/bp2c2f-eb60fa890f4ad43997e7ebbc24df84b7")
-    .then((res) => {
-      console.log(data);
-    });
 
   return (
     <div className={style.login}>
