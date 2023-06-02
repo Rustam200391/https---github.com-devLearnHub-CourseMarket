@@ -210,7 +210,7 @@ export const Registration = () => {
                 })}
               />
               {errors.re_password?.type === "required" && (
-                <span role="alert">Повторите пароль для подтверждения</span>
+                <span role="alert">Подтвердите пароль</span>
               )}
             </RegistrationItem>
           </div>

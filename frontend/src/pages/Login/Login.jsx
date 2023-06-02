@@ -18,24 +18,15 @@ export const Login = () => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
-  // const onEvent = () => {
-  //   if (email === data.email) {
-  //     res.status === 200;
-  //   } else {
-  //     // console.log("Данный пароль уже используется другим полльзователем");
-  //     <ModalWindow show={showModal} errorList={errorList} />;
-  //   }
-  // };
-
   const onSubmit = async (data) => {
     const { email, password } = data;
-    вытащить; // из ссылки по которой переходим из почты uid,token
+    // вытащить из ссылки по которой переходим из почты uid,token
     const url = "http://localhost:8000/users/activate/";
     // на этот адрес необходимо отправить данные
     // uid,token,email,password - если в json формате, то uid token не нужны
 
     // const url = "http://localhost:8000/auth/token/login/";
-    console.log(data);
+    // console.log(data);
     try {
       await axios
         .post(url, {
@@ -56,6 +47,12 @@ export const Login = () => {
       setTimeout(() => setShowModal(false), 5000);
     }
   };
+
+  axios
+    .get("http://localhost:3000/Mg/bp2c2f-eb60fa890f4ad43997e7ebbc24df84b7")
+    .then((res) => {
+      console.log(data);
+    });
 
   return (
     <div className={style.login}>
