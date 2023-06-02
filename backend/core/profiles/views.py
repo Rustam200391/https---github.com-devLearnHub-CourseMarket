@@ -35,3 +35,31 @@ class PasswordResetAPIView(APIView):
                 return HttpResponseRedirect(redirect_to='/login') # 204 всё хорошо, 403 пользователь активен.
             else:
                 return Response(bytes("тут будет редирект на страницу ошибки", 'utf-8')) 
+            
+        #     def get (self, request):
+        # """Активация пользователя"""
+        # activate_url = 'http://localhost:8000/api/v1/users/activation/'
+        # # authorization_url = 'http://localhost:8000/api/v1/token/'
+        # # user_data = {"uid": uid, "token": token}
+        # url = ' http://localhost:8000/auth/token/login/'
+        # uid = request.data["uid"]
+        # token = request.data['token']
+        # userData = {
+        #      "uid": uid,
+        #      "token": token
+        # }
+        # result = requests.post(activate_url, data=userData)
+        # if result.status_code == 204 or result.status_code == 403:
+        #     uid = request.data["uid"]
+        #     token = request.data['token']
+        #     userData = {
+        #         "uid": request.data["uid"],
+        #         "token": request.data["token"],
+        #         "email": request.data["email"],
+        #         "password": request.data["password"]
+        #     }
+        #     result = requests.post(url, data=userData)
+
+        #     return HttpResponse(result) # 204 всё хорошо, 403 пользователь активен.
+        # else:
+        #     return Response(bytes("тут будет редирект на страницу ошибки", 'utf-8'))
