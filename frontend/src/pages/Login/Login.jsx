@@ -36,15 +36,14 @@ export const Login = () => {
   const onSubmit = async (data) => {
     const { email, password } = data;
     // вытащить из ссылки по которой переходим из почты uid,token
-    const url = "http://localhost:8000/users/activate/";
+    const url = `http://localhost:8000/users/activate/${uid}/${token}/`;
+    console.log(url);
 
     try {
       await axios
-        .post(url, {
+        .get(url, {
           email: email,
           password: password,
-          uid: uid,
-          token: token,
         })
         .then((res) => {
           console.log(res);
@@ -52,12 +51,11 @@ export const Login = () => {
             navigate("/dashboard");
           }
         });
+      // .catch((err) => {
+      //   console.log(err)
+      // })
     } catch (err) {
       console.warn("ошибка", err);
-      console.log(err.response.data);
-      setErrorList(err.response.data);
-      setShowModal(true);
-      setTimeout(() => setShowModal(false), 5000);
     }
   };
 
