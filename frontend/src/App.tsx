@@ -18,6 +18,7 @@ function App() {
           
           {/* http://localhost:3000/:uid/:token/ переходить по этому пути */}
           <Route path="/:uid/:token/" element={<Login />} />
+          <Route path="/" element={<Login />} />
           {/*using the link from the mail to the login page, specify/{uid}/{token}/ */}
           
           {/* <Route path="/resetPassword/:uid:/:token" element={<ResetPassword />} /> */}
