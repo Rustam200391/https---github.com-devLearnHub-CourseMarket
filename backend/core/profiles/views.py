@@ -35,3 +35,4 @@ class PasswordResetAPIView(APIView):
                 return HttpResponseRedirect(redirect_to='/login') # 204 всё хорошо, 403 пользователь активен.
             else:
                 return Response(bytes("тут будет редирект на страницу ошибки", 'utf-8')) 
+        
