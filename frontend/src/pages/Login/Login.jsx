@@ -23,13 +23,10 @@ export const Login = () => {
     const arrUid = url.split("/");
     console.log(arrUid);
     setUid(arrUid[1]);
-    console.log(uid);
     setToken(arrUid[2]);
-    console.log(token);
   });
 
   const url = useLocation().pathname;
-  console.log(url);
 
   const navigate = useNavigate();
 
@@ -37,11 +34,10 @@ export const Login = () => {
     const { email, password } = data;
     // вытащить из ссылки по которой переходим из почты uid,token
     const url = `http://localhost:8000/users/activate/${uid}/${token}/`;
-    console.log(url);
-
+    console.log(data, url);
     try {
       await axios
-        .get(url, {
+        .post(url, {
           email: email,
           password: password,
         })

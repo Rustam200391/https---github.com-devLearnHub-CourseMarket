@@ -4,5 +4,5 @@ from .models import *
 
 # class ProfileModelAdmin(admin.ModelAdmin):
 #     pass
-admin.site.register(Women)
+# admin.site.register(Women)
 admin.site.register(UserData)

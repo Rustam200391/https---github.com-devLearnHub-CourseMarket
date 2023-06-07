@@ -1,20 +1,24 @@
-from django.http import HttpResponseRedirect
+import json
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect, render
 from rest_framework.response import Response
 from rest_framework.views import APIView
-import requests
+import requests 
+
 
 
 
 
 class RegisterAPIView(APIView):
-    """Регистрация пользователя"""       
-    def get (self, request, uid, token):
+       def post (self, request, uid, token):
         """Активация пользователя"""
         activate_url = 'http://localhost:8000/api/v1/users/activation/'
+        authorization_url = 'http://localhost:8000/api/v1/token/'
         user_data = {"uid": uid, "token": token}
         result = requests.post(activate_url, data=user_data)
         if result.status_code == 204 or 403:
-            return Response('http://localhost:3000/') # 204 всё хорошо, 403 пользователь активен.
+            result = requests.post(authorization_url, data=request.data) # 204 всё хорошо, 403 пользователь активен.
+            return Response(result)
         else:
             return Response(bytes("тут будет редирект на страницу ошибки", 'utf-8')) #error 400
 
@@ -32,7 +36,9 @@ class PasswordResetAPIView(APIView):
                         }
             result = requests.post(reset_password_url, data=user_data)
             if result.status_code == 204:
-                return HttpResponseRedirect(redirect_to='/login') # 204 всё хорошо, 403 пользователь активен.
+                return Response(bytes("тут будет редирект на главную страницу", 'utf-8')) # 204 всё хорошо, 403 пользователь активен.
             else:
                 return Response(bytes("тут будет редирект на страницу ошибки", 'utf-8')) 
-        
+    
+
+
