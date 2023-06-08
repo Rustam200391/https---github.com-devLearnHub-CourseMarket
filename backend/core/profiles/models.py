@@ -40,13 +40,11 @@ from phonenumber_field.modelfields import PhoneNumberField
     
 class UserData(AbstractUser):
     """Модель пользователя"""
-<<<<<<< HEAD
+
     email = models.EmailField(("email address"), unique=True)
     phoneNumber = PhoneNumberField(unique = True, null = False, blank = False, region="RU", verbose_name='номером телефона')
-=======
-    email = models.EmailField(_("email address"), unique=True)
-    phoneNumber = PhoneNumberField(unique = True, null = False, blank = False, region="RU", verbose_name="номером телефона")
->>>>>>> ea5f5dcfa1d0ff6db8460176b3f2bbe4884164a4
+
+ 
     username = models.CharField(max_length=200, verbose_name="login")
     
     USERNAME_FIELD = "email"
