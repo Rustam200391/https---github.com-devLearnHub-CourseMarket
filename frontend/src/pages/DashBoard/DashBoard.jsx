@@ -11,7 +11,7 @@ export const DashBoard = () => {
       </div>
       <a href="https://i.learnhub.ru/courses" alt="LeatnHub"></a>
       <div className={style.text}>Вы успешно зашли к нам на огонёк</div>
-      <Link to="/:uid/:token/">Вход в аккаунт</Link>
+      <Link to="/">Вход в аккаунт</Link>
     </section>
   );
 };

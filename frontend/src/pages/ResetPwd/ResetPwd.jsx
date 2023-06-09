@@ -93,7 +93,7 @@ export const ResetPassword = () => {
           <Button text="Reset Password " type="submit" />
         </div>
         <div className={style.links}>
-          <Link to="/:uid/:token/">Go Home</Link>
+          <Link to="/">Go Home</Link>
         </div>
       </section>
     </div>
