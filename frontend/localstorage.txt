@@ -1,0 +1,55 @@
+Для сохранения данных в локальном хранилище можно использовать метод `localStorage.setItem(key, value)`. В данном случае, можно сохранить значения полей формы при их изменении, а затем при отправке формы сохранить их в локальном хранилище. 
+
+Пример:
+
+```
+import { useState } from "react";
+
+export const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+    // отправка формы
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={handleEmailChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+```
+
+В данном примере при изменении значения поля email или password, оно сохраняется в соответствующем стейте. При отправке формы, значения сохраняются в локальном хранилище с помощью метода `localStorage.setItem()`. 
+
+При следующем открытии страницы, можно получить сохраненные значения из локального хранилища с помощью метода `localStorage.getItem(key)`. 

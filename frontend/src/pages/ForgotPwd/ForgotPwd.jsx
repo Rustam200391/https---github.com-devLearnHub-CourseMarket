@@ -27,7 +27,7 @@ export const ForgotPassword = () => {
         .then((res) => {
           console.log(res);
           if (res.status === 204) {
-            navigate("/password");
+            navigate("/mailreset");
           }
         });
     } catch (err) {
