@@ -33,7 +33,13 @@ export const Login = () => {
   const onSubmit = async (data) => {
     const { email, password } = data;
     // вытащить из ссылки по которой переходим из почты uid,token
-    const url = `http://localhost:8000/users/activate/${uid}/${token}/`;
+    const url = (uid, token) => {
+      if (!uid && !token) {
+        return "http://localhost:8000/api/v1/token/";
+      } else {
+        return `http://localhost:8000/users/activate/${uid}/${token}/`;
+      }
+    };
     console.log(data, url);
     try {
       await axios

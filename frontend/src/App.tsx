@@ -21,9 +21,9 @@ function App() {
           
           <Route path="/" element={<Login />} />
           {/*стартовая страница */}
-{/*           
-          <Route path="/resetPassword/:uid:/:token" element={<ResetPassword />} />
-          // наверное такой путь  */}
+          
+          <Route path="/password/reset/:uid:/:token/" element={<ResetPassword />} />
+          {/* // наверное такой путь  */}
 
           <Route path="/registration" element={<Registration />} />
 
