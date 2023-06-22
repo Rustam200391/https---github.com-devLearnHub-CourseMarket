@@ -32,7 +32,7 @@ http://localhost:3000/users/activate/<str:uid>/<str:token>/
 ------------------------------
 Получение токена
 адрес: http://localhost:8000/auth/token/login/
-  
+
 тип запроса: POST
 
 передаваемые данные:
@@ -42,7 +42,7 @@ http://localhost:3000/users/activate/<str:uid>/<str:token>/
 }
 ------------------------------
 выход из учётной записи и удаление токена:
-  
+
 тип запроса: POST
 
 передаваемые данные:
@@ -62,11 +62,23 @@ http://localhost:3000/users/activate/<str:uid>/<str:token>/
 }
 на почту приходит ссылка по которой нужно отправить 
 
+адрес : http://localhost:8000/password/reset/${uid}/${token}/
+
 тип запроса: POST
+
 {
     "new_password": "",
-    "re_password": ""
+    "re_new_password": ""
 }
-P.S пользоватеь должен быть активирован
+P.S после чего пользователь должен по новой залогинится БЕЗ UID,Token 
 
+адрес: http://localhost:8000/api/v1/token/
+
+тип запроса: POST
+
+{
+    "email": "",
+    "password": "новый пароль"
+}
+ответ ТОКЕНЫ
 ------------------------------

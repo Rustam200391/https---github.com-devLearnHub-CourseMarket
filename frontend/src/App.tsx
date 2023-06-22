@@ -22,7 +22,7 @@ function App() {
           <Route path="/" element={<Login />} />
           {/*стартовая страница */}
           
-          <Route path="/password/reset/:uid:/:token/" element={<ResetPassword />} />
+          <Route path="/password/reset/:uid/:token" element={<ResetPassword />} />
           {/* // наверное такой путь  */}
 
           <Route path="/registration" element={<Registration />} />
@@ -30,7 +30,7 @@ function App() {
           <Route path="/forgotPwd" element={<ForgotPassword />} />
           {/* если забыл пароль */}
 
-          <Route path="/password/:uid:/:token" element={<ResetPassword />} />
+          <Route path="/password/:uid/:token" element={<ResetPassword />} />
           {/* переходим по ссылке из почты с токеном и паролем для сброса */}
 
           <Route path="/dashboard" element={<DashBoard />} />

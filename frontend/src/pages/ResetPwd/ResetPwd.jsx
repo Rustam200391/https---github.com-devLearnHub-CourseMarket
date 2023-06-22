@@ -3,6 +3,8 @@ import style from "./style.module.scss";
 import RegistrationItem from "../../components/Form/RegistrationItem";
 import Button from "../../components/Button/Button";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 
 export const ResetPassword = () => {
   const {
@@ -11,20 +13,32 @@ export const ResetPassword = () => {
     formState: { errors },
   } = useForm();
 
+  //нужно извлечь uid и токен из ссылки на сброс пароля и передать в url
+
+  // const [uid, setUid] = useState();
+  // const [token, setToken] = useState();
+
+  // useEffect(() => {
+  //   const arrUid = url.split("/");
+  //   console.log(arrUid);
+  //   setUid(arrUid[1]);
+  //   setToken(arrUid[2]);
+  // });
   //в ссылку вставить id и токен
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    const { email } = data;
-    const url = "http://localhost:8000/api/v1/users/reset_password/";
+    const { new_password } = data;
+    const url = `http://localhost:8000/password/reset/${uid}/${token}/`;
     try {
       await axios
         .post(url, {
-          email: email,
+          new_password: new_password,
+          re_new_password: re_new_password,
         })
         .then((res) => {
           if (res.status === 200) {
-            navigate("/reset");
+            navigate("/");
           }
         });
     } catch (err) {
@@ -51,7 +65,7 @@ export const ResetPassword = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className={style.reset__list}>
-            <RegistrationItem title="новый пароль" error={errors.password}>
+            <RegistrationItem title="новый пароль" error={errors.new_password}>
               <input
                 id="password"
                 type="password"
@@ -61,10 +75,10 @@ export const ResetPassword = () => {
                   validate: checkPassword,
                 })}
               />
-              {errors.password?.type === "required" && (
+              {errors.new_password?.type === "required" && (
                 <span>Введите пароль</span>
               )}
-              {errors.password?.type === "minLength" && (
+              {errors.new_password?.type === "minLength" && (
                 <span>min Length 9 characters</span>
               )}
             </RegistrationItem>
@@ -72,26 +86,27 @@ export const ResetPassword = () => {
           <div className={style.reset__list}>
             <RegistrationItem
               title="подтверждение пароля"
-              error={errors.re_password}
+              error={errors.re_new_password}
             >
               <input
                 id="confirmpswd"
                 type="password"
-                {...register("re_password", {
+                {...register("re_new_password", {
                   pattern: /^[a-z0-9!?]{8,}$/,
                   required: true,
                   validate: checkPassword,
                 })}
               />
-              {errors.re_password?.type === "required" && (
+              {errors.re_new_password?.type === "required" && (
                 <span role="alert">Повторите пароль для подтверждения</span>
               )}
             </RegistrationItem>
           </div>
+          <div className={style.reset__button}>
+            <Button text="Reset Password " type="submit" />
+          </div>
         </form>
-        <div className={style.reset__button}>
-          <Button text="Reset Password " type="submit" />
-        </div>
+
         <div className={style.links}>
           <Link to="/">Go Home</Link>
         </div>

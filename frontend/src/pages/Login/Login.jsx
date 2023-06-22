@@ -43,7 +43,7 @@ export const Login = () => {
     console.log(data, url);
     try {
       await axios
-        .post(url, {
+        .post(url(uid, token), {
           email: email,
           password: password,
         })
