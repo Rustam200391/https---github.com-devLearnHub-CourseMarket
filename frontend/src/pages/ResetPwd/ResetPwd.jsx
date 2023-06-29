@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import style from "./style.module.scss";
 import RegistrationItem from "../../components/Form/RegistrationItem";
 import Button from "../../components/Button/Button";
@@ -15,21 +15,24 @@ export const ResetPassword = () => {
 
   //нужно извлечь uid и токен из ссылки на сброс пароля и передать в url
 
-  // const [uid, setUid] = useState();
-  // const [token, setToken] = useState();
+  const [uid, setUid] = useState();
+  const [token, setToken] = useState();
 
-  // useEffect(() => {
-  //   const arrUid = url.split("/");
-  //   console.log(arrUid);
-  //   setUid(arrUid[1]);
-  //   setToken(arrUid[2]);
-  // });
+  const url = useLocation().pathname;
+
+  useEffect(() => {
+    const arrUid = url.split("/");
+    console.log(arrUid);
+    setUid(arrUid[3]);
+    setToken(arrUid[4]);
+  });
   //в ссылку вставить id и токен
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    const { new_password } = data;
+    const { new_password, re_new_password } = data;
     const url = `http://localhost:8000/password/reset/${uid}/${token}/`;
+    
     try {
       await axios
         .post(url, {
@@ -37,6 +40,7 @@ export const ResetPassword = () => {
           re_new_password: re_new_password,
         })
         .then((res) => {
+          console.log('ответ',res);
           if (res.status === 200) {
             navigate("/");
           }
