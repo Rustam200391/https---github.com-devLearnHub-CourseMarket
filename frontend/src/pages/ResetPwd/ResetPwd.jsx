@@ -26,13 +26,13 @@ export const ResetPassword = () => {
     setUid(arrUid[3]);
     setToken(arrUid[4]);
   });
-  //в ссылку вставить id и токен
+
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     const { new_password, re_new_password } = data;
     const url = `http://localhost:8000/password/reset/${uid}/${token}/`;
-    
+
     try {
       await axios
         .post(url, {
@@ -40,7 +40,7 @@ export const ResetPassword = () => {
           re_new_password: re_new_password,
         })
         .then((res) => {
-          console.log('ответ',res);
+          console.log("ответ", res);
           if (res.status === 200) {
             navigate("/");
           }
