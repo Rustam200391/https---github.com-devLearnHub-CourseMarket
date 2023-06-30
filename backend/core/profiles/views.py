@@ -28,17 +28,16 @@ class PasswordResetAPIView(APIView):
     def post(self, request, uid, token):
             reset_password_url = 'http://localhost:8000/api/v1/users/reset_password_confirm/'
             new_password = request.data['new_password']
-            re_password = request.data['re_password']
+            re_new_password = request.data['re_new_password']
             user_data = {"uid": uid, 
                         "token": token,
                         "new_password": new_password,
-                        "re_password": re_password
+                        "re_new_password": re_new_password
                         }
             result = requests.post(reset_password_url, data=user_data)
             if result.status_code == 204:
-                return Response(bytes("200", 'utf-8')) # 204 всё хорошо, 403 пользователь активен.
+                return Response(bytes("200", 'utf-8')) 
             else:
-                return Response(bytes("тут будет редирект на страницу ошибки", 'utf-8')) 
-    
+                return Response(bytes("тут будет редирект на страницу ошибки", 'utf-8'))
 
 
