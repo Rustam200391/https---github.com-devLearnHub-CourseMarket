@@ -1,4 +1,4 @@
-impor
+import 
 import "./style.css";
 
 export const Form = () => {
