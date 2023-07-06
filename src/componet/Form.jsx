@@ -1,4 +1,4 @@
-imp
+impo
 import "./style.css";
 
 export const Form = () => {
