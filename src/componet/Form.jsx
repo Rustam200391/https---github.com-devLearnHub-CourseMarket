@@ -1,4 +1,4 @@
-import  from "react";
+import R  from "react";
 import "./style.css";
 
 export const Form = () => {
