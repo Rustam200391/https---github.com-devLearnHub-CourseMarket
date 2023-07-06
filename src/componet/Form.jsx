@@ -1,4 +1,4 @@
-import React,{u  from "react";
+import React,{us  from "react";
 import "./style.css";
 
 export const Form = () => {
