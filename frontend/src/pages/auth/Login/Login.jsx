@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import RegistrationItem from "../../components/Form/RegistrationItem";
+import RegistrationItem from "../../../components/Form/RegistrationItem";
 import style from "./style.module.scss";
-import Button from "../../components/Button/Button";
+import Button from "../../../components/Button/Button";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import ModalWindow from "../../components/UI/ModalWindow/ModalWindow";
+import ModalWindow from "../../../components/UI/ModalWindow/ModalWindow";
 
 export const Login = () => {
   const {
@@ -40,7 +40,7 @@ export const Login = () => {
         return `http://localhost:8000/users/activate/${uid}/${token}/`;
       }
     };
-    console.log(data, url);
+    // console.log(data, url);
     try {
       await axios
         .post(url(uid, token), {

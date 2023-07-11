@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import style from "./style.module.scss";
-import RegistrationItem from "../../components/Form/RegistrationItem";
-import Button from "../../components/Button/Button";
+import RegistrationItem from "../../../components/Form/RegistrationItem";
+import Button from "../../../components/Button/Button";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import React, { useState, useEffect } from "react";

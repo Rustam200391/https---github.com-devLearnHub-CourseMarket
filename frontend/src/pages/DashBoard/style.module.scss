@@ -6,7 +6,29 @@ $green: #9eff00;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	&__inner,Link {
+		display:inline-block;
+    	border:1px solid #CCC;
+    	background:#01ffef;
+    	box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+		border-radius: 45px;
+    	cursor:pointer;
+    	vertical-align:middle;
+    	max-width: 100px;
+    	padding: 5px;
+    	text-align: center;
+			&:active {
+    		color:red;
+    		box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+		}
+	} 
 }
 .text {
 	color: $green;
 }
+.header {
+	background-color: rgb(4, 4, 252);
+	min-height: 50vh;
+}
+
+
