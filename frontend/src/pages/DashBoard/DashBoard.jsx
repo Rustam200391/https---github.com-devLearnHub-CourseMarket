@@ -17,7 +17,9 @@ export const DashBoard = () => {
         <div className={style.text}>Вы успешно зашли к нам на огонёк</div>
         {/* <Link to="/">Вход в аккаунт</Link> */}
       </header>
-      <main className={style.main}></main>
+      <main className={style.main}>
+        <section className="section__inner"></section>
+      </main>
     </>
   );
 };
