@@ -1,4 +1,4 @@
-<App for intern LearnHub
+<aApp for intern LearnHub
 
 # Getting Started with Create React App
 
