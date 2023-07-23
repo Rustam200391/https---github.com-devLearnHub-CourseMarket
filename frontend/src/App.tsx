@@ -4,9 +4,10 @@ import { Login } from "./pages/auth/Login/Login.jsx";
 import { ResetPassword } from "./pages/auth/ResetPwd/ResetPwd.jsx";
 import { ForgotPassword } from "./pages/auth/ForgotPwd/ForgotPwd.jsx";
 import { DashBoard } from './pages/DashBoard/DashBoard.jsx';
-import './App.scss'
+import {MainPage} from './pages/DashBoard/Main/MainPage.jsx';
 import {MailReset} from './pages/auth/MailReset/MailReset.jsx'
 import './assets/style/reset.css';
+import './App.scss';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           {/* переходим по ссылке из почты с токеном и паролем для сброса */}
 
           <Route path="/dashboard" element={<DashBoard />} />
+          <Route path="/main" element={<MainPage />} />
           {/* добро поджаловать к нам на огонек */}
 
           <Route path="/mailreset" element={< MailReset />} />

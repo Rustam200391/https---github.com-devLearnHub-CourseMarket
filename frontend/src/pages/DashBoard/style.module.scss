@@ -6,10 +6,9 @@ $green: #9eff00;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	&__inner,Link {
+	&__inner {
 		display:inline-block;
     	border:1px solid #CCC;
-    	background:#01ffef;
     	box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
 		border-radius: 45px;
     	cursor:pointer;
@@ -17,11 +16,10 @@ $green: #9eff00;
     	max-width: 100px;
     	padding: 5px;
     	text-align: center;
-			&:active {
-    		color:red;
+	}&__link {
+    		color:#d1e231;
     		box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
 		}
-	} 
 }
 .text {
 	color: $green;
