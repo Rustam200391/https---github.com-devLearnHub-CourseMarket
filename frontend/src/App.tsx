@@ -1,12 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Registration } from "./pages/Registration/Registration.jsx";
-import { Login } from "./pages/Login/Login.jsx";
-import { ResetPassword } from "./pages/ResetPwd/ResetPwd.jsx";
-import { ForgotPassword } from "./pages/ForgotPwd/ForgotPwd.jsx";
+import { Registration } from "./pages/auth/Registration/Registration.jsx";
+import { Login } from "./pages/auth/Login/Login.jsx";
+import { ResetPassword } from "./pages/auth/ResetPwd/ResetPwd.jsx";
+import { ForgotPassword } from "./pages/auth/ForgotPwd/ForgotPwd.jsx";
 import { DashBoard } from './pages/DashBoard/DashBoard.jsx';
-import './App.scss'
-import {MailReset} from './pages/MailReset/MailReset.jsx'
+import {Player} from './pages/DashBoard/Main/MainPage.jsx';
+import {MailReset} from './pages/auth/MailReset/MailReset.jsx'
 import './assets/style/reset.css';
+import './App.scss';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           {/* переходим по ссылке из почты с токеном и паролем для сброса */}
 
           <Route path="/dashboard" element={<DashBoard />} />
+          <Route path="/main" element={<Player />} />
           {/* добро поджаловать к нам на огонек */}
 
           <Route path="/mailreset" element={< MailReset />} />

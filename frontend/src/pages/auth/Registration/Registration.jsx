@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Button from "../../components/Button/Button";
+import Button from "../../../components/Button/Button";
 import style from "./style.module.scss";
-import RegistrationItem from "../../components/Form/RegistrationItem.jsx";
-import ModalWindow from "../../components/UI/ModalWindow/ModalWindow";
+import RegistrationItem from "../../../components/Form/RegistrationItem.jsx";
+import ModalWindow from "../../../components/UI/ModalWindow/ModalWindow";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
