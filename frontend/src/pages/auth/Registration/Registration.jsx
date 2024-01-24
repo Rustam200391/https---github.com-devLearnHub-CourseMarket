@@ -188,7 +188,7 @@ export const Registration = () => {
                 })}
               />
               {errors.password?.type === "required" && (
-                <span>Введите пароль</span>
+                <span>Введите пароль)</span>
               )}
               {errors.password?.type === "minLength" && (
                 <span>min Length 9 characters</span>
