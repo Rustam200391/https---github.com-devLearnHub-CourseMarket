@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "jest": "^29.7.0",
     "react-scroll-parallax": "^3.4.2"
   }
 }
