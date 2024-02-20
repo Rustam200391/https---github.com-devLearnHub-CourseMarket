@@ -1,0 +1,129 @@
+$green:#9eff00;
+.login{
+  min-height: 100vh;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  background: #1d1d1d;
+  &__container{
+    background: black;
+    padding: 50px 100px;
+    border-radius: 10px;
+    //тень общая
+    // box-shadow: 0px 0px 10px 5px #9dff00;
+  }
+  &__title{
+    font-size: 50px;
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+   &_green{ 
+    color: $green;
+    font-size: 50px;
+  }
+  }
+  &__form{}
+  &__item{
+    margin: 0px auto 15px;
+    max-width: 300px;
+  }
+  &__button{
+    padding: 30px 0px 30px 0px;
+    text-align: center;
+  }
+}
+.memory{
+  &__input{
+    position: absolute;
+     z-index: -1;
+    opacity: 0;
+  visibility: hidden; 
+  }
+  &__input+label {
+    display: inline-flex;
+      align-items: center;
+      user-select: none;
+  }
+  &__input+label::before {
+      content: '';
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      flex-shrink: 0;
+      flex-grow: 0;
+      border: 1px solid #adb5bd;
+      border-radius: 0.25em;
+      margin-right: 0.5em;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50% 50%;
+    }
+  &__input::not(:disabled):not(:checked)+label:hover::before {
+      border-color: #ff6f00;
+    }
+  &__input:focus+label::before {
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+  &__input:focus:not(:checked)+label::before {
+      border-color: #80bdff;
+    }
+
+  &__input:checked+label::before {
+      border-color: #9eff00;
+      background-color: #9eff00;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+    }
+  &__input:disabled+label::before {
+      background-color: #e9ecef;
+    }
+  &__input:checked+span{
+    background: #fbf9f9;
+  }
+  &__customInput+label{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(250, 248, 248);
+    position: absolute;
+    margin-left: 15px;
+  }
+   &__customInput::before {
+    content: "";
+    position: absolute;
+    display: block;
+    // display: block;
+    width: 20px;
+    height: 20px;
+    background: #9eff00;
+    border: #000;
+    transform: translate(-50%, -50%);
+    top: 48%;
+    left: 50%;
+    opacity: 0;
+    transition: .2s;
+   }
+  
+  &__label{
+    color: white;
+    font-size: 18px;
+  }
+}
+.links{
+  display: flex;
+  flex-direction: column;
+  &>a{
+    align-self: flex-start;
+    margin: 0px 0px 15px 0px;
+    text-decoration: none;
+     border-bottom: 1px solid transparent;
+     transition: border-bottom 0.3s ease 0s;
+    &:hover{
+      border-bottom: 1px solid $green;
+    }
+    &:last-child{
+      margin: 0;
+      align-self: flex-end;
+    }
+  }
+}
+

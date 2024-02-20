@@ -1,0 +1,17 @@
+FROM python:3.11-alpine3.17
+
+COPY req.txt /backend/req.txt
+COPY backend /backend
+
+WORKDIR /backend/core
+EXPOSE 8000
+
+RUN apk add postgresql-client build-base postgresql-dev
+
+RUN pip install -r /backend/req.txt
+
+RUN adduser --disabled-password service-user
+USER service-user
+
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

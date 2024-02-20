@@ -1,0 +1,25 @@
+$red: #fb0101;
+.container {
+	position: fixed;
+	bottom: 15px;
+	padding: 15px 30px;
+	background: $red;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+
+	align-items: flex-start;
+	transition: right 0.3s ease 0s;
+}
+.active {
+	right: 15px;
+}
+.disactive {
+	right: -100%;
+}
+.item {
+	margin: 0px 0px 10px 0px;
+	&:last-child {
+		margin: 0;
+	}
+}
