@@ -1,4 +1,4 @@
-App for internationship LearnHub
+<i>App for internationship LearnHub
 
 # Getting Started with Create React App
 
